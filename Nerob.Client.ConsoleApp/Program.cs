@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Nerob.Client.Console
+namespace Nerob.Client.ConsoleApp
 {
     public class Program
     {
@@ -12,7 +12,7 @@ namespace Nerob.Client.Console
         {
             double test = 0;
 
-            System.Console.WriteLine($"")
+            Console.WriteLine($"");
         }
     }
 }
