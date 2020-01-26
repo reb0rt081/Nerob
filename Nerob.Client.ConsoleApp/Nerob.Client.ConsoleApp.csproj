@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{6726889D-CB48-41C6-9CB1-B7ACE23EE30D}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Nerob.Client.Console</RootNamespace>
-    <AssemblyName>Nerob.Client.Console</AssemblyName>
+    <RootNamespace>Nerob.Client.ConsoleApp</RootNamespace>
+    <AssemblyName>Nerob.Client.ConsoleApp</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

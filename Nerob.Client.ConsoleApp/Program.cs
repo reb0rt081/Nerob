@@ -8,8 +8,11 @@ namespace Nerob.Client.Console
 {
     public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
+            double test = 0;
+
+            System.Console.WriteLine($"")
         }
     }
 }
