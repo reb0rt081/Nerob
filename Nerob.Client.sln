@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nerob.Shared", "Nerob.Share
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nerob.Client.Controls", "Nerob.Client.Controls\Nerob.Client.Controls.csproj", "{18B5998D-433E-4CDB-A328-240A2A9D2BED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nerob.Client.Console", "Nerob.Client.Console\Nerob.Client.Console.csproj", "{6726889D-CB48-41C6-9CB1-B7ACE23EE30D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{18B5998D-433E-4CDB-A328-240A2A9D2BED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18B5998D-433E-4CDB-A328-240A2A9D2BED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18B5998D-433E-4CDB-A328-240A2A9D2BED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6726889D-CB48-41C6-9CB1-B7ACE23EE30D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6726889D-CB48-41C6-9CB1-B7ACE23EE30D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6726889D-CB48-41C6-9CB1-B7ACE23EE30D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6726889D-CB48-41C6-9CB1-B7ACE23EE30D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
