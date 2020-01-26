@@ -12,7 +12,9 @@ namespace Nerob.Client.ConsoleApp
         {
             double test = 0;
 
-            Console.WriteLine($"");
+            Console.WriteLine($"Hello world!");
+
+            string input = Console.ReadLine();
         }
     }
 }
