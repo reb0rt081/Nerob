@@ -10,9 +10,10 @@ namespace Nerob.Client.ConsoleApp
     {
         public static void Main(string[] args)
         {
-            double test = 0;
-
-            Console.WriteLine($"Hello world!");
+            Console.WriteLine($"<Welcome to NEROB picking system. Please choose an action:>");
+            Console.WriteLine($"    <1. Stock inbound.>");
+            Console.WriteLine($"    <2. Stock outbound.>");
+            Console.WriteLine($"    <3. Blind count.>");
 
             string input = Console.ReadLine();
         }
