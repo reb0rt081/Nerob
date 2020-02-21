@@ -13,18 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using CommonServiceLocator;
-
-using Prism.Regions;
-
-namespace Nerob.Client.Desktop
+namespace Nerob.Client.Modules.Picking.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for PickingView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PickingView : UserControl
     {
-        public MainWindow()
+        public PickingView()
         {
             InitializeComponent();
         }
