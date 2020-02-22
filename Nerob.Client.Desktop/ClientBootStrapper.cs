@@ -33,14 +33,16 @@ namespace Nerob.Client.Desktop
 
         protected override void InitializeShell()
         {
-            Application.Current.MainWindow.Show();
+            //  This method for some reason creates a double view if we tell the app to show the main window
+            base.InitializeShell();
+            //Application.Current.MainWindow.Show();
         }
 
         public override void Run(bool runWithDefaultConfiguration)
         {
-            CheckUniqueInstanceIsRunning();
-
             base.Run(runWithDefaultConfiguration);
+
+            CheckUniqueInstanceIsRunning();
 
             var regionManager = 
                 Container.Resolve<IRegionManager>();
