@@ -18,6 +18,11 @@ using Unity;
 
 namespace Nerob.Client.Desktop
 {
+    /// <summary>
+    /// Following pattern from:
+    /// Link1: https://prismlibrary.com/docs/wpf/legacy/Composing-the-UI.html
+    /// Link2: https://github.com/PrismLibrary/Prism-Samples-Wpf
+    /// </summary>
     public class ClientBootStrapper : UnityBootstrapper
     {
 
@@ -33,7 +38,14 @@ namespace Nerob.Client.Desktop
 
         public override void Run(bool runWithDefaultConfiguration)
         {
+            CheckUniqueInstanceIsRunning();
+
             base.Run(runWithDefaultConfiguration);
+
+            var regionManager = 
+                Container.Resolve<IRegionManager>();
+
+            regionManager.RegisterViewWithRegion("MainRegion", typeof(PickingView));
         }
 
         public void CheckUniqueInstanceIsRunning()
