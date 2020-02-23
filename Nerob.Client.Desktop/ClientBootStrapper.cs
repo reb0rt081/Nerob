@@ -44,10 +44,15 @@ namespace Nerob.Client.Desktop
 
             CheckUniqueInstanceIsRunning();
 
-            var regionManager = 
+            LoadModules();
+        }
+
+        public void LoadModules()
+        {
+            IRegionManager regionManager =
                 Container.Resolve<IRegionManager>();
 
-            regionManager.RegisterViewWithRegion("MainRegion", typeof(PickingView));
+            regionManager.RegisterViewWithRegion(Shared.Constants.MainRegion, typeof(PickingView));
         }
 
         public void CheckUniqueInstanceIsRunning()

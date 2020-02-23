@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Nerob.Client.Desktop"
         xmlns:regions="http://prismlibrary.com/"
+        xmlns:Shared="clr-namespace:Nerob.Client.Shared;assembly=Nerob.Client.Shared"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ContentControl regions:RegionManager.RegionName="MainRegion" />
+        <ContentControl regions:RegionManager.RegionName="{x:Static Shared:Constants.MainRegion}" />
     </Grid>
 </Window>
