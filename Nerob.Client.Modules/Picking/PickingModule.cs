@@ -33,10 +33,8 @@ namespace Nerob.Client.Modules.Picking
 
             //RegionManager.RegisterViewWithRegion(Shared.Constants.MainRegion, () => Container.Resolve<PickingView>(Shared.Constants.PickingView));
 
-            StockCountView stockCountView = new StockCountView();
-            Container.RegisterInstance<StockCountView>(stockCountView, new ContainerControlledLifetimeManager());
-            Container.BuildUp(stockCountView);
-            this.RegisterViewInRegion<StockCountView>(Shared.Constants.MainRegion, Shared.Constants.StockCountView);
+            this.RegisterViewInRegionAndContainer<StockCountView>(Shared.Constants.MainRegion,
+                Shared.Constants.StockCountView);
             
             //RegionManager.RegisterViewWithRegion(Shared.Constants.MainRegion, () => Container.Resolve<StockCountView>(Shared.Constants.StockCountView));
         }
