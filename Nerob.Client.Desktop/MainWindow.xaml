@@ -9,6 +9,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ContentControl regions:RegionManager.RegionName="{x:Static Shared:Constants.MainRegion}" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="65*"/>
+            <RowDefinition Height="15*"/>
+        </Grid.RowDefinitions>
+        <ContentControl Grid.Row="0" regions:RegionManager.RegionName="{x:Static Shared:Constants.RibbonRegion}" />
+        <ContentControl Grid.Row="1" regions:RegionManager.RegionName="{x:Static Shared:Constants.MainRegion}" />
+        <ContentControl Grid.Row="2" regions:RegionManager.RegionName="{x:Static Shared:Constants.FooterRegion}" />
     </Grid>
 </Window>

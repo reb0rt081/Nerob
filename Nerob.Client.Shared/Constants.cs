@@ -12,13 +12,17 @@ namespace Nerob.Client.Shared
 
         public const string MainRegion = nameof(MainRegion);
 
+        public const string RibbonRegion = nameof(RibbonRegion);
+
+        public const string FooterRegion = nameof(FooterRegion);
+
         #endregion
 
         #region Views
 
-        public const string PickingView = "PickingView";
+        public const string PickingView = nameof(PickingView);
 
-        public const string StockCountView = "StockCountView";
+        public const string StockCountView = nameof(StockCountView);
 
         #endregion
 

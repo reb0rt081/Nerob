@@ -26,24 +26,19 @@ namespace Nerob.Client.Modules.Picking
 
         public override void OnInitialized(IContainerProvider containerProvider)
         {
-            IUnityContainer container = containerProvider.GetContainer();
-
-            IRegionManager regionManager =
-                container.Resolve<IRegionManager>();
-
             PickingView pickingView = new PickingView();
-            container.RegisterInstance<PickingView>(Shared.Constants.PickingView, pickingView, new ContainerControlledLifetimeManager());
-            container.BuildUp(pickingView);
+            Container.RegisterInstance<PickingView>(Shared.Constants.PickingView, pickingView, new ContainerControlledLifetimeManager());
+            Container.BuildUp(pickingView);
             this.RegisterViewInRegion<PickingView>(Shared.Constants.MainRegion, Shared.Constants.PickingView);
 
-            //regionManager.RegisterViewWithRegion(Shared.Constants.MainRegion, () => container.Resolve<PickingView>(Shared.Constants.PickingView));
+            //RegionManager.RegisterViewWithRegion(Shared.Constants.MainRegion, () => Container.Resolve<PickingView>(Shared.Constants.PickingView));
 
             StockCountView stockCountView = new StockCountView();
-            container.RegisterInstance<StockCountView>(stockCountView, new ContainerControlledLifetimeManager());
-            container.BuildUp(stockCountView);
+            Container.RegisterInstance<StockCountView>(stockCountView, new ContainerControlledLifetimeManager());
+            Container.BuildUp(stockCountView);
             this.RegisterViewInRegion<StockCountView>(Shared.Constants.MainRegion, Shared.Constants.StockCountView);
             
-            //regionManager.RegisterViewWithRegion(Shared.Constants.MainRegion, () => container.Resolve<StockCountView>(Shared.Constants.StockCountView));
+            //RegionManager.RegisterViewWithRegion(Shared.Constants.MainRegion, () => Container.Resolve<StockCountView>(Shared.Constants.StockCountView));
         }
     }
 }
