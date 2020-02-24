@@ -6,28 +6,32 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
+using Nerob.Client.Modules.Picking;
+
+using Prism.Ioc;
+using Prism.Modularity;
+using Prism.Unity;
+
 namespace Nerob.Client.Desktop
 {
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
+    public partial class App : PrismApplication
     {
-        public App()
-        {
-            Exit += ApplicationOnExit;
-            Startup += ApplicationOnStartup;
-        }
-
-        private void ApplicationOnStartup(object sender, StartupEventArgs e)
-        {
-            ClientBootStrapper clientBootStrapper = new ClientBootStrapper();
-            clientBootStrapper.Run();
-        }
-
-        private void ApplicationOnExit(object sender, ExitEventArgs e)
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             
+        }
+
+        protected override Window CreateShell()
+        {
+            return Container.Resolve<MainWindow>();
+        }
+
+        protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
+        {
+            moduleCatalog.AddModule<PickingModule>();
         }
     }
 }

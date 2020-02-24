@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,24 +20,23 @@ using Unity;
 namespace Nerob.Client.Modules.Picking.Views
 {
     /// <summary>
-    /// Interaction logic for PickingView.xaml
+    /// Interaction logic for StockCountView.xaml
     /// </summary>
-    public partial class PickingView : UserControl
+    public partial class StockCountView : UserControl
     {
         [Dependency]
         public IRegionManager RegionManager { get; set; }
 
         [Dependency]
         public IUnityContainer Container { get; set; }
-
-        public PickingView()
+        public StockCountView()
         {
             InitializeComponent();
         }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            RegionManager.RequestNavigate(Shared.Constants.MainRegion, typeof(StockCountView).Name);
+            RegionManager.RequestNavigate(Shared.Constants.MainRegion, typeof(PickingView).Name);
         }
     }
 }

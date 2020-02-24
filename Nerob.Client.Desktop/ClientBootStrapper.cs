@@ -15,6 +15,7 @@ using Nerob.Domain;
 using Prism.Regions;
 using Prism.Unity;
 using Unity;
+using Unity.Lifetime;
 
 namespace Nerob.Client.Desktop
 {
@@ -52,7 +53,17 @@ namespace Nerob.Client.Desktop
             IRegionManager regionManager =
                 Container.Resolve<IRegionManager>();
 
-            regionManager.RegisterViewWithRegion(Shared.Constants.MainRegion, typeof(PickingView));
+            PickingView pickingView = new PickingView();
+            Container.RegisterInstance<PickingView>(Shared.Constants.PickingView, pickingView, new ContainerControlledLifetimeManager());
+            Container.BuildUp(pickingView);
+            
+            regionManager.RegisterViewWithRegion(Shared.Constants.MainRegion, () => Container.Resolve<PickingView>(Shared.Constants.PickingView));
+            
+            StockCountView stockCountView = new StockCountView();
+            Container.RegisterInstance<StockCountView>(stockCountView, new ContainerControlledLifetimeManager());
+            Container.BuildUp(stockCountView);
+
+            regionManager.RegisterViewWithRegion(Shared.Constants.MainRegion, () => Container.Resolve<StockCountView>(Shared.Constants.StockCountView));
         }
 
         public void CheckUniqueInstanceIsRunning()

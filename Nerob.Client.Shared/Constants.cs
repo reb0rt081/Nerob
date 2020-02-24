@@ -16,7 +16,9 @@ namespace Nerob.Client.Shared
 
         #region Views
 
-        public const string PickingViewKey = nameof(PickingViewKey);
+        public const string PickingView = "PickingView";
+
+        public const string StockCountView = "StockCountView";
 
         #endregion
 
