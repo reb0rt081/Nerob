@@ -128,6 +128,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Nerob.Client.Core\Nerob.Client.Core.csproj">
+      <Project>{ae838417-8879-4ca5-9494-9e6f2cca5225}</Project>
+      <Name>Nerob.Client.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Nerob.Client.Modules\Nerob.Client.Modules.csproj">
       <Project>{329C6EFF-9493-425A-9AD0-1DBB3DC0DF9A}</Project>
       <Name>Nerob.Client.Modules</Name>

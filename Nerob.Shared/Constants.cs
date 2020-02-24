@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Nerob.Shared
 {
-    public class Constants
+    public static class Constants
     {
     }
 }

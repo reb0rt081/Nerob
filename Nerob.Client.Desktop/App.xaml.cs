@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 
 using Nerob.Client.Modules.Picking;
-
+using Nerob.Client.Core;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Unity;

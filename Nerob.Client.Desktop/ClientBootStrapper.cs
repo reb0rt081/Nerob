@@ -10,7 +10,6 @@ using System.Windows.Controls.Primitives;
 using CommonServiceLocator;
 using Nerob.Client.Modules.Picking;
 using Nerob.Client.Modules.Picking.Views;
-using Nerob.Domain;
 
 using Prism.Regions;
 using Prism.Unity;
