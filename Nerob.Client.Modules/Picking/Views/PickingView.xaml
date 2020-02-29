@@ -3,19 +3,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Nerob.Client.Modules.Picking.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50*"/>
-            <ColumnDefinition Width="50*"/>
-        </Grid.ColumnDefinitions>
+        <Grid.Resources>
+            <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+                    <ResourceDictionary Source="pack://application:,,,/Nerob.Client.Shared;component/Styles/CommonStyles.xaml" />
+                </ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary>
+        </Grid.Resources>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50*"/>
-            <RowDefinition Height="50*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="15*"/>
         </Grid.RowDefinitions>
-        <TextBox Grid.Column="0" Grid.Row="0">Picking View</TextBox>
-        <Button Grid.Column="1" Grid.Row="1" Click="ButtonBase_OnClick">Test me</Button>
+        <Label Grid.Row="0" Content="Tornillos" Style="{StaticResource LabelStyle}"/>
+        <Label Grid.Row="2" Content="BARCODE" Style="{StaticResource LabelStyle}"/>
+        <TextBox Grid.Row="3" Name="enteredBarcode"/>
+        <Button Grid.Row="4" Click="ButtonBase_OnClick">Test me</Button>
     </Grid>
 </UserControl>

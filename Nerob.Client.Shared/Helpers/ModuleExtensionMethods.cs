@@ -18,7 +18,7 @@ namespace Nerob.Client.Shared.Helpers
         public static void RegisterViewInRegionAndContainer<T>(this NerobModule nerobModule, string regionName,
             string viewName)
         {
-            nerobModule.Container.RegisterType(typeof(T), typeof(T), viewName,new ContainerControlledLifetimeManager());
+            nerobModule.Container.RegisterType(typeof(T), typeof(T), viewName, new ContainerControlledLifetimeManager());
 
             RegisterViewInRegion<T>(nerobModule, regionName, viewName);
         }
