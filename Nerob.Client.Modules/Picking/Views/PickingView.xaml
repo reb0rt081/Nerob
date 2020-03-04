@@ -13,16 +13,18 @@
                 </ResourceDictionary.MergedDictionaries>
             </ResourceDictionary>
         </Grid.Resources>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="40*"/>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="15*"/>
-        </Grid.RowDefinitions>
-        <Label Grid.Row="0" Content="Tornillos" Style="{StaticResource LabelStyle}"/>
-        <Label Grid.Row="2" Content="BARCODE" Style="{StaticResource LabelStyle}"/>
-        <TextBox Grid.Row="3" Name="enteredBarcode"/>
-        <Button Grid.Row="4" Click="ButtonBase_OnClick">Test me</Button>
+        <Grid Style="{StaticResource GridStyle}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="15*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="15*"/>
+                <RowDefinition Height="15*"/>
+                <RowDefinition Height="15*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Content="Tornillos" Style="{StaticResource LabelStyle}"/>
+            <Label Grid.Row="2" Content="BARCODE" Style="{StaticResource LabelStyle}"/>
+            <TextBox Grid.Row="3" Name="enteredBarcode" Width="300" Style="{StaticResource TextBoxStyle}"/>
+            <Button Grid.Row="4" Click="ButtonBase_OnClick" Width="300" Style="{StaticResource ButtonStyle}">Confirm</Button>
+        </Grid>
     </Grid>
 </UserControl>
