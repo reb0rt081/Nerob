@@ -21,6 +21,7 @@ namespace Nerob.Client.Modules.Picking
     {
         public override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterForNavigation<PickingRibbon>();
             containerRegistry.RegisterForNavigation<PickingView>();
             containerRegistry.RegisterForNavigation<StockCountView>();
         }

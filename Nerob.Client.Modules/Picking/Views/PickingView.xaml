@@ -21,10 +21,15 @@
                 <RowDefinition Height="15*"/>
                 <RowDefinition Height="15*"/>
             </Grid.RowDefinitions>
-            <Label Grid.Row="0" Content="Tornillos" Style="{StaticResource LabelStyle}"/>
-            <Label Grid.Row="2" Content="BARCODE" Style="{StaticResource LabelStyle}"/>
-            <TextBox Grid.Row="3" Name="enteredBarcode" Width="300" Style="{StaticResource TextBoxStyle}"/>
-            <Button Grid.Row="4" Click="ButtonBase_OnClick" Width="300" Style="{StaticResource ButtonStyle}">Confirm</Button>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="33*"/>
+                <ColumnDefinition Width="33*"/>
+                <ColumnDefinition Width="33*"/>                
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="1" Content="Tornillos" Style="{StaticResource LabelStyle}"/>
+            <Label Grid.Row="2" Grid.Column="1" Content="BARCODE" HorizontalAlignment="Left"  Style="{StaticResource LabelStyle}"/>
+            <TextBox Grid.Row="3" Grid.Column="1" Name="enteredBarcode" Style="{StaticResource TextBoxStyle}"/>
+            <Button Grid.Row="4" Grid.Column="1" Click="ButtonBase_OnClick" Style="{StaticResource ButtonStyle}">Confirm</Button>
         </Grid>
     </Grid>
 </UserControl>

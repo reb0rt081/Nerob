@@ -85,9 +85,6 @@
     </Compile>
     <Compile Include="Picking\ViewModels\IPickingViewModel.cs" />
     <Compile Include="Picking\ViewModels\PickingViewModel.cs" />
-    <Compile Include="Picking\Views\PickingRibbonPage.xaml.cs">
-      <DependentUpon>PickingRibbonPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Picking\Views\PickingView.xaml.cs">
       <DependentUpon>PickingView.xaml</DependentUpon>
     </Compile>
@@ -116,10 +113,6 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Picking\Ribbon\PickingRibbon.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Picking\Views\PickingRibbonPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
