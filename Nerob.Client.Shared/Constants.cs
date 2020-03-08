@@ -26,5 +26,11 @@ namespace Nerob.Client.Shared
 
         #endregion
 
+        #region Ribbons
+
+        public const string PickingRibbon = nameof(PickingRibbon);
+
+        #endregion
+
     }
 }

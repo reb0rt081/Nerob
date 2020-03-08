@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Nerob.Client.Core;
+using Nerob.Client.Modules.Picking.Ribbon;
 using Nerob.Client.Modules.Picking.Views;
 using Nerob.Client.Shared.Helpers;
 using Prism.Ioc;
@@ -35,8 +36,10 @@ namespace Nerob.Client.Modules.Picking
 
             this.RegisterViewInRegionAndContainer<StockCountView>(Shared.Constants.MainRegion,
                 Shared.Constants.StockCountView);
-            
+
             //RegionManager.RegisterViewWithRegion(Shared.Constants.MainRegion, () => Container.Resolve<StockCountView>(Shared.Constants.StockCountView));
+
+            this.RegisterViewInRegionAndContainer<PickingRibbon>(Shared.Constants.RibbonRegion, Shared.Constants.PickingRibbon);
         }
     }
 }

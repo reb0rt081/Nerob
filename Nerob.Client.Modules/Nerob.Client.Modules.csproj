@@ -57,6 +57,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="system.windows.controls.ribbon" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Prism.Wpf.7.2.0.1422\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -67,6 +68,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
     <Reference Include="Unity.Abstractions, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.Abstractions.5.11.1\lib\net47\Unity.Abstractions.dll</HintPath>
     </Reference>
@@ -77,6 +80,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Picking\PickingModule.cs" />
+    <Compile Include="Picking\Ribbon\PickingRibbon.xaml.cs">
+      <DependentUpon>PickingRibbon.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Picking\ViewModels\IPickingViewModel.cs" />
     <Compile Include="Picking\ViewModels\PickingViewModel.cs" />
     <Compile Include="Picking\Views\PickingRibbonPage.xaml.cs">
@@ -109,6 +115,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Picking\Ribbon\PickingRibbon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Picking\Views\PickingRibbonPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
