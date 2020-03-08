@@ -6,15 +6,9 @@
              xmlns:local="clr-namespace:Nerob.Client.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="33*"/>
-            <RowDefinition Height="33*"/>
-            <RowDefinition Height="33*"/>
-        </Grid.RowDefinitions>
-        <Separator Grid.Row="0" HorizontalAlignment="Stretch"/>
-        <Label Grid.Row="1" Content="BARCODE"/>
-        <TextBox Grid.Row="2" HorizontalAlignment="Stretch"/>
-        
-    </Grid>
+    <StackPanel Orientation="Vertical">
+        <Separator HorizontalAlignment="Stretch"/>
+        <Label HorizontalAlignment="Left" Content="BARCODE"/>
+        <TextBox HorizontalAlignment="Stretch"/>
+    </StackPanel>
 </UserControl>
