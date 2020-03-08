@@ -13,10 +13,19 @@
             </Ribbon.HelpPaneContent>
             <Ribbon.ApplicationMenu>
                 <RibbonApplicationMenu KeyTip="F">
-                    <RibbonApplicationMenuItem Header="Options" ImageSource="pack://application:,,,/Nerob.Client.Shared;component/Images/exit_icon.png" />
+                    <RibbonApplicationMenuItem Header="Options" ImageSource="pack://application:,,,/Nerob.Client.Shared;component/Images/options_icon.png" />
                     <RibbonApplicationMenuItem Header="Exit" ImageSource="pack://application:,,,/Nerob.Client.Shared;component/Images/exit_icon.png" />
                 </RibbonApplicationMenu>
             </Ribbon.ApplicationMenu>
+            <RibbonTab Header="Home" KeyTip="H" >
+                <RibbonGroup Header="Actions">
+                    <RibbonButton LargeImageSource="pack://application:,,,/Nerob.Client.Shared;component/Images/save_icon.png" Label="Save" KeyTip="X" />
+                </RibbonGroup>
+            </RibbonTab>
+            <!-- Ribbon Tab #2: -->
+            <RibbonTab Header="Insert" KeyTip="I"/>
+            <!-- Ribbon Tab #3: -->
+            <RibbonTab Header="PageLayout" KeyTip="L"/>
         </Ribbon>
     </DockPanel>
 </UserControl>
