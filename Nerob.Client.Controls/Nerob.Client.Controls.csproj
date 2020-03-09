@@ -56,5 +56,11 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Nerob.Client.Shared\Nerob.Client.Shared.csproj">
+      <Project>{f61de32b-cad1-4bd4-9213-043d31d0bf06}</Project>
+      <Name>Nerob.Client.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
