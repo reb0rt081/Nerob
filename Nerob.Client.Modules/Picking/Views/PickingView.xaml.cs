@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using Nerob.Client.Modules.Picking.ViewModels;
+
 using Prism.Regions;
 
 using Unity;
@@ -29,7 +31,7 @@ namespace Nerob.Client.Modules.Picking.Views
         public IRegionManager RegionManager { get; set; }
 
         [Dependency]
-        public IUnityContainer Container { get; set; }
+        public IPickingViewModel PickingViewModel { get; set; }
 
         public PickingView()
         {
@@ -38,7 +40,10 @@ namespace Nerob.Client.Modules.Picking.Views
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            RegionManager.RequestNavigate(Shared.Constants.MainRegion, typeof(StockCountView).Name);
+            if(PickingViewModel != null)
+            {
+                RegionManager.RequestNavigate(Shared.Constants.MainRegion, typeof(StockCountView).Name);
+            }
         }
     }
 }

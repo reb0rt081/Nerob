@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Nerob.Client.Core;
 using Nerob.Client.Modules.Picking.Ribbon;
+using Nerob.Client.Modules.Picking.ViewModels;
 using Nerob.Client.Modules.Picking.Views;
 using Nerob.Client.Shared.Helpers;
 using Prism.Ioc;
@@ -28,10 +29,11 @@ namespace Nerob.Client.Modules.Picking
 
         public override void OnInitialized(IContainerProvider containerProvider)
         {
-            PickingView pickingView = new PickingView();
-            Container.RegisterInstance<PickingView>(Shared.Constants.PickingView, pickingView, new ContainerControlledLifetimeManager());
-            Container.BuildUp(pickingView);
-            this.RegisterViewInRegion<PickingView>(Shared.Constants.MainRegion, Shared.Constants.PickingView);
+            PickingViewModel pickingViewModel = new PickingViewModel();
+            Container.RegisterInstance<IPickingViewModel>(pickingViewModel, new ContainerControlledLifetimeManager());
+            Container.BuildUp(pickingViewModel);
+
+            this.RegisterViewInRegionAndContainer<PickingView>(Shared.Constants.MainRegion, Shared.Constants.PickingView);
 
             //RegionManager.RegisterViewWithRegion(Shared.Constants.MainRegion, () => Container.Resolve<PickingView>(Shared.Constants.PickingView));
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Nerob.Client.Modules.Picking.ViewModels
 {
-    public class PickingViewModel
+    public class PickingViewModel : IPickingViewModel
     {
         public string ItemBarcode { get; set; }
 
