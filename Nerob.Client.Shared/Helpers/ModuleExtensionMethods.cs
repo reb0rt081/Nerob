@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Nerob.Client.Core;
 using Unity.Lifetime;
+using Unity;
 
 namespace Nerob.Client.Shared.Helpers
 {
@@ -21,6 +22,14 @@ namespace Nerob.Client.Shared.Helpers
             nerobModule.Container.RegisterType(typeof(T), typeof(T), viewName, new ContainerControlledLifetimeManager());
 
             RegisterViewInRegion<T>(nerobModule, regionName, viewName);
+        }
+
+        public static void RegisterViewAndViewModelInRegionAndContainer<T1, T2>(this NerobModule nerobModule, T2 viewModel, string regionName, string viewName)
+        {
+            nerobModule.Container.RegisterInstance<T2>(viewModel, new ContainerControlledLifetimeManager());
+            nerobModule.Container.BuildUp(viewModel);
+
+            RegisterViewInRegionAndContainer<T1>(nerobModule, regionName, viewName);
         }
     }
 }

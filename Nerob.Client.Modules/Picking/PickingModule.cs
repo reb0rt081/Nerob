@@ -29,18 +29,10 @@ namespace Nerob.Client.Modules.Picking
 
         public override void OnInitialized(IContainerProvider containerProvider)
         {
-            PickingViewModel pickingViewModel = new PickingViewModel();
-            Container.RegisterInstance<IPickingViewModel>(pickingViewModel, new ContainerControlledLifetimeManager());
-            Container.BuildUp(pickingViewModel);
-
-            this.RegisterViewInRegionAndContainer<PickingView>(Shared.Constants.MainRegion, Shared.Constants.PickingView);
-
-            //RegionManager.RegisterViewWithRegion(Shared.Constants.MainRegion, () => Container.Resolve<PickingView>(Shared.Constants.PickingView));
+            this.RegisterViewAndViewModelInRegionAndContainer<PickingView, IPickingViewModel>(new PickingViewModel(), Shared.Constants.MainRegion, Shared.Constants.PickingView);
 
             this.RegisterViewInRegionAndContainer<StockCountView>(Shared.Constants.MainRegion,
                 Shared.Constants.StockCountView);
-
-            //RegionManager.RegisterViewWithRegion(Shared.Constants.MainRegion, () => Container.Resolve<StockCountView>(Shared.Constants.StockCountView));
 
             this.RegisterViewInRegionAndContainer<PickingRibbon>(Shared.Constants.RibbonRegion, Shared.Constants.PickingRibbon);
         }
