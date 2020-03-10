@@ -20,7 +20,7 @@
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Margin" Value="10,5,10,5"/>
         <Setter Property="HorizontalAlignment" Value="Stretch"/>
-        <Setter Property="Background" Value="#FF43F354"/>
+        <Setter Property="Background" Value="#FF2DC116"/>
     </Style>
     <Style x:Key="GridStyle" TargetType="Grid">
         <Setter Property="Background" Value="WhiteSmoke"/>        

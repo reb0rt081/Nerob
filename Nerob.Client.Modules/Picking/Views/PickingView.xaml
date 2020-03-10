@@ -30,7 +30,15 @@
                 <Label Grid.Row="0" Content="Tornillos" Style="{StaticResource LabelStyle}"/>
                 <Grid Grid.Row="1" VerticalAlignment="Stretch"/>
                 <Controls:NerobScannerControl Grid.Row="2" VerticalAlignment="Stretch"/>
-                <Button Grid.Row="3" Click="ButtonBase_OnClick" Style="{StaticResource ButtonStyle}">Confirm</Button>
+                <Button Grid.Row="3" Click="ButtonBase_OnClick" Style="{StaticResource ButtonStyle}">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                        <Label Content="&#xE10B;" HorizontalAlignment="Center" Foreground="White" FontFamily="Segoe MDL2 Assets"
+                        FontSize="25"
+                        FontWeight="Bold"/>
+
+                        <Label Content="Confirm" Foreground="White" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
             </Grid>            
         </Grid>
     </Grid>
