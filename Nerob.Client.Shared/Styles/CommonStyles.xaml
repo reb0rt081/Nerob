@@ -25,4 +25,18 @@
     <Style x:Key="GridStyle" TargetType="Grid">
         <Setter Property="Background" Value="WhiteSmoke"/>        
     </Style>
+    <Style x:Key="RoundButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Height" Value="100"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Fill="Red"/>
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

@@ -24,10 +24,10 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="15*"/>
                     <RowDefinition Height="55*"/>
-                    <RowDefinition Height="15*"/>
-                    <RowDefinition Height="15*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Label Grid.Row="0" Content="Tornillos" Style="{StaticResource LabelStyle}"/>
+                <Label Grid.Row="0" Content="Tornillos" Style="{StaticResource LabelStyle}" FontSize="20"/>
                 <Grid Grid.Row="1" VerticalAlignment="Stretch"/>
                 <Controls:NerobScannerControl Grid.Row="2" VerticalAlignment="Stretch"/>
                 <Button Grid.Row="3" Click="ButtonBase_OnClick" Style="{StaticResource ButtonStyle}">
@@ -35,7 +35,6 @@
                         <Label Content="&#xE10B;" HorizontalAlignment="Center" Foreground="White" FontFamily="Segoe MDL2 Assets"
                         FontSize="25"
                         FontWeight="Bold"/>
-
                         <Label Content="Confirm" Foreground="White" HorizontalAlignment="Center"/>
                     </StackPanel>
                 </Button>
