@@ -32,6 +32,7 @@ namespace Nerob.Client.Controls
         //    typeof(NerobScannerControl),
         //    new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.AffectsRender));
 
+        public string LastSuccessfulScan { get; set; }
 
         public bool ClearTextOnSubmit { get; set; }
 
@@ -75,6 +76,8 @@ namespace Nerob.Client.Controls
             if (e.Key == Key.Enter || e.Key == Key.Tab)
             {
                 ScanSubmitted?.Invoke(this, barcodeScannedTextBox.Text);
+
+                LastSuccessfulScan = barcodeScannedTextBox.Text;
 
                 if(ClearTextOnSubmit)
                 {

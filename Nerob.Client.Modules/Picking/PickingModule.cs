@@ -24,15 +24,15 @@ namespace Nerob.Client.Modules.Picking
         {
             containerRegistry.RegisterForNavigation<PickingRibbon>();
             containerRegistry.RegisterForNavigation<PickingView>();
-            containerRegistry.RegisterForNavigation<StockCountView>();
+            containerRegistry.RegisterForNavigation<LocationView>();
         }
 
         public override void OnInitialized(IContainerProvider containerProvider)
         {
-            this.RegisterViewAndViewModelInRegionAndContainer<PickingView, IPickingViewModel, PickingViewModel>(new PickingViewModel(), Shared.Constants.MainRegion, Shared.Constants.PickingView);
+            this.RegisterViewAndViewModelInRegionAndContainer<LocationView, IPickingViewModel, PickingViewModel>(new PickingViewModel(), Shared.Constants.MainRegion, Shared.Constants.LocationView);
 
-            this.RegisterViewInRegionAndContainer<StockCountView>(Shared.Constants.MainRegion,
-                Shared.Constants.StockCountView);
+            this.RegisterViewInRegionAndContainer<PickingView>(Shared.Constants.MainRegion,
+                Shared.Constants.PickingView);
 
             this.RegisterViewInRegionAndContainer<PickingRibbon>(Shared.Constants.RibbonRegion, Shared.Constants.PickingRibbon);
         }

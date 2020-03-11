@@ -88,8 +88,8 @@
     <Compile Include="Picking\Views\PickingView.xaml.cs">
       <DependentUpon>PickingView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Picking\Views\StockCountView.xaml.cs">
-      <DependentUpon>StockCountView.xaml</DependentUpon>
+    <Compile Include="Picking\Views\LocationView.xaml.cs">
+      <DependentUpon>LocationView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -130,7 +130,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Picking\Views\StockCountView.xaml">
+    <Page Include="Picking\Views\LocationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

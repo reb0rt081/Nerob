@@ -13,6 +13,8 @@ namespace Nerob.Client.Modules.Picking.ViewModels
 {
     public interface IPickingViewModel
     {
+        DelegateCommand<string> LocationEnteredCommand { get; set; }
+
         DelegateCommand<string> BarcodeEnteredCommand { get; set; }
 
         DelegateCommand ConfirmPickCommand { get; set; }

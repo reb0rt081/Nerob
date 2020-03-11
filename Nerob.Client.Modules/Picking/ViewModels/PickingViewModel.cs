@@ -27,6 +27,7 @@ namespace Nerob.Client.Modules.Picking.ViewModels
         [InjectionMethod]
         public void Initialize()
         {
+            LocationEnteredCommand = new DelegateCommand<string>(OnLocationEnteredCommandExecuted);
             BarcodeEnteredCommand = new DelegateCommand<string>(OnBarcodeEnteredCommandExecuted);
             ConfirmPickCommand = new DelegateCommand(OnPickConfirmCommandExecuted, OnPickConfirmCommandCanExecute);
             IncreaseQuantityCommand = new DelegateCommand(OnIncreaseQuantityCommandExecuted, OnIncreaseQuantityCommandCanExecute);
@@ -36,6 +37,9 @@ namespace Nerob.Client.Modules.Picking.ViewModels
         #endregion
 
         #region Commands
+
+        public DelegateCommand<string> LocationEnteredCommand { get; set; }
+
         public DelegateCommand<string> BarcodeEnteredCommand { get; set; }
 
         public DelegateCommand ConfirmPickCommand { get; set; }
@@ -103,6 +107,16 @@ namespace Nerob.Client.Modules.Picking.ViewModels
             RaisePropertiesChanged();
         }
 
+        private void OnLocationEnteredCommandExecuted(string barcode)
+        {
+            if (!string.IsNullOrEmpty(barcode))
+            {
+                RaisePropertiesChanged();
+
+                RegionManager.RequestNavigate(Shared.Constants.MainRegion, typeof(PickingView).Name);
+            }
+        }
+
         private void OnIncreaseQuantityCommandExecuted()
         {
             QuantitySelected++;
@@ -131,7 +145,7 @@ namespace Nerob.Client.Modules.Picking.ViewModels
 
             RaisePropertiesChanged();
 
-            RegionManager.RequestNavigate(Shared.Constants.MainRegion, typeof(StockCountView).Name);
+            RegionManager.RequestNavigate(Shared.Constants.MainRegion, typeof(LocationView).Name);
         }
 
         private bool OnPickConfirmCommandCanExecute()

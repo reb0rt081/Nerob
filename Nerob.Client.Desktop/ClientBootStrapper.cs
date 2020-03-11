@@ -49,11 +49,11 @@ namespace Nerob.Client.Desktop
             
             regionManager.RegisterViewWithRegion(Shared.Constants.MainRegion, () => Container.Resolve<PickingView>(Shared.Constants.PickingView));
             
-            StockCountView stockCountView = new StockCountView();
-            Container.RegisterInstance<StockCountView>(stockCountView, new ContainerControlledLifetimeManager());
-            Container.BuildUp(stockCountView);
+            LocationView locationView = new LocationView();
+            Container.RegisterInstance<LocationView>(locationView, new ContainerControlledLifetimeManager());
+            Container.BuildUp(locationView);
 
-            regionManager.RegisterViewWithRegion(Shared.Constants.MainRegion, () => Container.Resolve<StockCountView>(Shared.Constants.StockCountView));
+            regionManager.RegisterViewWithRegion(Shared.Constants.MainRegion, () => Container.Resolve<LocationView>(Shared.Constants.LocationView));
         }
 
         public void CheckUniqueInstanceIsRunning()

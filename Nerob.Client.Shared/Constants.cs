@@ -22,7 +22,7 @@ namespace Nerob.Client.Shared
 
         public const string PickingView = nameof(PickingView);
 
-        public const string StockCountView = nameof(StockCountView);
+        public const string LocationView = nameof(LocationView);
 
         #endregion
 
