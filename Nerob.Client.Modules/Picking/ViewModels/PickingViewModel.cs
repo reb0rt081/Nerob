@@ -4,11 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Prism.Commands;
+using Prism.Mvvm;
+
+using Unity;
+
 namespace Nerob.Client.Modules.Picking.ViewModels
 {
-    public class PickingViewModel : IPickingViewModel
+    public class PickingViewModel : BindableBase, IPickingViewModel
     {
-        #region Constructor
+        #region Constructor and Initialize
 
         public PickingViewModel()
         {
@@ -18,6 +23,21 @@ namespace Nerob.Client.Modules.Picking.ViewModels
             ItemLocation = "Pasillo 1 / Armario 2 / Estanteria 4 / Posición 3";
             QuantitySelected = 0;
         }
+
+        [InjectionMethod]
+        public void Initialize()
+        {
+            IncreaseQuantityCommand = new DelegateCommand(OnIncreaseQuantityCommandExecuted);
+            DecreaseQuantityCommand = new DelegateCommand(OnDecreaseQuantityCommandExecuted);
+        }
+
+        #endregion
+
+        #region Commands
+
+        public DelegateCommand IncreaseQuantityCommand { get; set; }
+
+        public DelegateCommand DecreaseQuantityCommand { get; set; }
 
         #endregion
 
@@ -37,5 +57,20 @@ namespace Nerob.Client.Modules.Picking.ViewModels
 
         #endregion
 
+        #region Private methods
+
+        private void OnIncreaseQuantityCommandExecuted()
+        {
+            QuantitySelected++;
+            RaisePropertyChanged(nameof(QuantitySelected));
+        }
+
+        private void OnDecreaseQuantityCommandExecuted()
+        {
+            QuantitySelected--;
+            RaisePropertyChanged(nameof(QuantitySelected));
+        }
+
+        #endregion
     }
 }

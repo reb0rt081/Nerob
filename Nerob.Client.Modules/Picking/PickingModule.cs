@@ -29,7 +29,7 @@ namespace Nerob.Client.Modules.Picking
 
         public override void OnInitialized(IContainerProvider containerProvider)
         {
-            this.RegisterViewAndViewModelInRegionAndContainer<PickingView, IPickingViewModel>(new PickingViewModel(), Shared.Constants.MainRegion, Shared.Constants.PickingView);
+            this.RegisterViewAndViewModelInRegionAndContainer<PickingView, IPickingViewModel, PickingViewModel>(new PickingViewModel(), Shared.Constants.MainRegion, Shared.Constants.PickingView);
 
             this.RegisterViewInRegionAndContainer<StockCountView>(Shared.Constants.MainRegion,
                 Shared.Constants.StockCountView);

@@ -24,7 +24,7 @@ namespace Nerob.Client.Shared.Helpers
             RegisterViewInRegion<T>(nerobModule, regionName, viewName);
         }
 
-        public static void RegisterViewAndViewModelInRegionAndContainer<T1, T2>(this NerobModule nerobModule, T2 viewModel, string regionName, string viewName)
+        public static void RegisterViewAndViewModelInRegionAndContainer<T1, T2, T3>(this NerobModule nerobModule, T3 viewModel, string regionName, string viewName) where T3 : T2
         {
             nerobModule.Container.RegisterInstance<T2>(viewModel, new ContainerControlledLifetimeManager());
             nerobModule.Container.BuildUp(viewModel);

@@ -46,9 +46,9 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Column="0" Content="&#x2212;" FontSize="45" Style="{StaticResource RoundButtonStyle}" />
+                    <Button Grid.Column="0" Command="{Binding Path=DecreaseQuantityCommand, UpdateSourceTrigger=PropertyChanged}" Content="&#x2212;" FontSize="45" Style="{StaticResource RoundButtonStyle}" />
                     <Label Grid.Column="1"  Content="{Binding Path=QuantitySelected}" FontSize="45" Style="{StaticResource LabelStyle}"/>
-                    <Button Grid.Column="2" Content="&#x002B;" FontSize="45" Style="{StaticResource RoundButtonStyle}"/>
+                    <Button Grid.Column="2" Command="{Binding Path=IncreaseQuantityCommand, UpdateSourceTrigger=PropertyChanged}" Content="&#x002B;" FontSize="45" Style="{StaticResource RoundButtonStyle}"/>
                 </Grid>
                 <Button Grid.Row="4" Click="ButtonBase_OnClick" Style="{StaticResource ButtonStyle}">
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Center">

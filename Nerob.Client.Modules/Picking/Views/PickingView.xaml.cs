@@ -52,5 +52,6 @@ namespace Nerob.Client.Modules.Picking.Views
                 RegionManager.RequestNavigate(Shared.Constants.MainRegion, typeof(StockCountView).Name);
             }
         }
+        
     }
 }
