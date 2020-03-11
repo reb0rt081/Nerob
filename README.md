@@ -1,1 +1,1 @@
-Repository for tools.
+Repository for a lite application that can work as a template for Client applications or help businesses to deal with stock and inventory.
