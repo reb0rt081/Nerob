@@ -20,6 +20,14 @@
                 <ColumnDefinition Width="33*"/>
                 <ColumnDefinition Width="33*"/>                
             </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Content="Description" Style="{StaticResource LabelStyle}" FontSize="20"/>
+                <TextBlock Grid.Row="1" Style="{StaticResource TextBlockStyle}" Text="Tornifeijfdfdjfhdsj jfdhfjdhf d fhdgfhdsg dhfdgf jdfgd jf dfdsfjsdgf dsjhfgdsjfds fshdgfsdjh f roberto ribes minguez final del texto" />
+            </Grid>
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="15*"/>
@@ -50,7 +58,15 @@
                         <Label Content="Confirm" Foreground="White" HorizontalAlignment="Center"/>
                     </StackPanel>
                 </Button>
-            </Grid>            
+            </Grid>
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Content="Location" Style="{StaticResource LabelStyle}" FontSize="20"/>
+                <TextBlock Grid.Row="1" Style="{StaticResource TextBlockStyle}" Text="Pasillo 1 / Armario 2 / Estanteria 4 / Posición 3" />
+            </Grid>
         </Grid>
     </Grid>
 </UserControl>
