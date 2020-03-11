@@ -13,6 +13,8 @@ namespace Nerob.Client.Modules.Picking.ViewModels
 {
     public interface IPickingViewModel
     {
+        DelegateCommand ConfirmPickCommand { get; set; }
+
         DelegateCommand IncreaseQuantityCommand { get; set; }
 
         DelegateCommand DecreaseQuantityCommand { get; set; }

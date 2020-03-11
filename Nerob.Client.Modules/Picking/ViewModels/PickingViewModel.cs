@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Nerob.Client.Modules.Picking.Views;
 using Nerob.Shared;
 
 using Prism.Commands;
 using Prism.Mvvm;
+using Prism.Regions;
 
 using Unity;
 
@@ -19,22 +21,13 @@ namespace Nerob.Client.Modules.Picking.ViewModels
 
         public PickingViewModel()
         {
-            InventoryInformation = new InventoryInformation()
-            {
-                ItemName = "Tornillos",
-                ItemDescription = "Tornifeijfdfdjfhdsj jfdhfjdhf d fhdgfhdsg dhfdgf jdfgd jf dfdsfjsdgf dsjhfgdsjfds fshdgfsdjh f roberto ribes minguez final del texto",
-                ItemLocation = "Pasillo 1 / Armario 2 / Estanteria 4 / Posición 3",
-                QuantityAvailable = 10,
-                ItemBarcode = "1011"
-            };
-            
-            ItemImagePath = @"C:\Users\rbo\Pictures\tornillos.jpg";
-            QuantitySelected = 0;
+            ResetView();
         }
 
         [InjectionMethod]
         public void Initialize()
         {
+            ConfirmPickCommand = new DelegateCommand(OnPickConfirmCommandExecuted, OnPickConfirmCommandCanExecute);
             IncreaseQuantityCommand = new DelegateCommand(OnIncreaseQuantityCommandExecuted, OnIncreaseQuantityCommandCanExecute);
             DecreaseQuantityCommand = new DelegateCommand(OnDecreaseQuantityCommandExecuted, OnDecreaseQuantityCommandCanExecute);
         }
@@ -43,6 +36,8 @@ namespace Nerob.Client.Modules.Picking.ViewModels
 
         #region Commands
 
+        public DelegateCommand ConfirmPickCommand { get; set; }
+
         public DelegateCommand IncreaseQuantityCommand { get; set; }
 
         public DelegateCommand DecreaseQuantityCommand { get; set; }
@@ -50,6 +45,9 @@ namespace Nerob.Client.Modules.Picking.ViewModels
         #endregion
 
         #region Properties
+
+        [Dependency]
+        public IRegionManager RegionManager { get; set; }
 
         public InventoryInformation InventoryInformation { get; set; }
 
@@ -61,6 +59,20 @@ namespace Nerob.Client.Modules.Picking.ViewModels
 
         #region Private methods
 
+        private void ResetView()
+        {
+            InventoryInformation = new InventoryInformation()
+            {
+                ItemName = "Scan Item",
+                ItemDescription = string.Empty,
+                ItemLocation = "Pasillo 1 / Armario 2 / Estanteria 4 / Posición 3",
+                QuantityAvailable = 0,
+                ItemBarcode = string.Empty
+            };
+
+            ItemImagePath = @"pack://application:,,,/Nerob.Client.Shared;component/Images/questionMark.png";
+            QuantitySelected = 0;
+        }
         private void OnIncreaseQuantityCommandExecuted()
         {
             QuantitySelected++;
@@ -83,12 +95,24 @@ namespace Nerob.Client.Modules.Picking.ViewModels
             return InventoryInformation!= null && QuantitySelected < InventoryInformation.QuantityAvailable ;
         }
 
+        private void OnPickConfirmCommandExecuted()
+        {
+            RegionManager.RequestNavigate(Shared.Constants.MainRegion, typeof(StockCountView).Name);
+        }
+
+        private bool OnPickConfirmCommandCanExecute()
+        {
+            return QuantitySelected >= 0 && InventoryInformation != null && InventoryInformation.QuantityAvailable > 0;
+        }
+
         private void RaisePropertiesChanged()
         {
             RaisePropertyChanged(nameof(QuantitySelected));
             DecreaseQuantityCommand.RaiseCanExecuteChanged();
             IncreaseQuantityCommand.RaiseCanExecuteChanged();
+            ConfirmPickCommand.RaiseCanExecuteChanged();
         }
+
         #endregion
     }
 }

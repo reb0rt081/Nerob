@@ -50,7 +50,7 @@
                     <Label Grid.Column="1"  Content="{Binding Path=QuantitySelected}" FontSize="45" Style="{StaticResource LabelStyle}"/>
                     <Button Grid.Column="2" Command="{Binding Path=IncreaseQuantityCommand, UpdateSourceTrigger=PropertyChanged}" Content="&#x002B;" FontSize="45" Style="{StaticResource RoundButtonStyle}"/>
                 </Grid>
-                <Button Grid.Row="4" Click="ButtonBase_OnClick" Style="{StaticResource ButtonStyle}">
+                <Button Grid.Row="4" Command="{Binding Path=ConfirmPickCommand, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ButtonStyle}">
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
                         <Label Content="&#xE10B;" HorizontalAlignment="Center" Foreground="White" FontFamily="Segoe MDL2 Assets"
                         FontSize="25"

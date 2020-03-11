@@ -16,8 +16,6 @@ using System.Windows.Shapes;
 
 using Nerob.Client.Modules.Picking.ViewModels;
 
-using Prism.Regions;
-
 using Unity;
 
 namespace Nerob.Client.Modules.Picking.Views
@@ -27,9 +25,6 @@ namespace Nerob.Client.Modules.Picking.Views
     /// </summary>
     public partial class PickingView : UserControl
     {
-        [Dependency]
-        public IRegionManager RegionManager { get; set; }
-
         [Dependency]
         public IPickingViewModel PickingViewModel
         {
@@ -44,14 +39,5 @@ namespace Nerob.Client.Modules.Picking.Views
         {
             InitializeComponent();
         }
-
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        {
-            if(PickingViewModel != null)
-            {
-                RegionManager.RequestNavigate(Shared.Constants.MainRegion, typeof(StockCountView).Name);
-            }
-        }
-        
     }
 }
