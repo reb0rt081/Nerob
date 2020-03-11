@@ -94,7 +94,10 @@ namespace Nerob.Client.Modules.Picking.ViewModels
             }
             else
             {
-                QuantitySelected++;
+                if (IncreaseQuantityCommand.CanExecute())
+                {
+                    IncreaseQuantityCommand.Execute();
+                }
             }
 
             RaisePropertiesChanged();
@@ -133,7 +136,7 @@ namespace Nerob.Client.Modules.Picking.ViewModels
 
         private bool OnPickConfirmCommandCanExecute()
         {
-            return QuantitySelected >= 0 && InventoryInformation != null && InventoryInformation.QuantityAvailable > 0;
+            return QuantitySelected > 0 && InventoryInformation != null && InventoryInformation.QuantityAvailable > 0;
         }
 
         private void RaisePropertiesChanged()
