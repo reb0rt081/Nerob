@@ -14,11 +14,16 @@ namespace Nerob.Client.Modules.Picking.ViewModels
         {
             ItemName = "Tornillos";
             ItemImagePath = @"C:\Users\rbo\Pictures\tornillos.jpg";
+            ItemDescription = "Tornifeijfdfdjfhdsj jfdhfjdhf d fhdgfhdsg dhfdgf jdfgd jf dfdsfjsdgf dsjhfgdsjfds fshdgfsdjh f roberto ribes minguez final del texto";
+            ItemLocation = "Pasillo 1 / Armario 2 / Estanteria 4 / Posición 3";
+            QuantitySelected = 0;
         }
 
         #endregion
 
         #region Properties
+
+        public string ItemDescription { get; set; }
 
         public string ItemImagePath { get; set; }
 
@@ -28,7 +33,7 @@ namespace Nerob.Client.Modules.Picking.ViewModels
 
         public string ItemLocation { get; set; }
 
-        public int QuantityPicked { get; set; }
+        public int QuantitySelected { get; set; }
 
         #endregion
 

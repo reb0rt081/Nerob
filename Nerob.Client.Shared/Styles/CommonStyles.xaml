@@ -9,6 +9,7 @@
     <Style x:Key="TextBlockStyle" TargetType="TextBlock">
         <Setter Property="Margin" Value="10,0,10,0"/>
         <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
     </Style>
     <Style x:Key="TextBoxStyle" TargetType="TextBox">
         <Setter Property="BorderThickness" Value="0"/>

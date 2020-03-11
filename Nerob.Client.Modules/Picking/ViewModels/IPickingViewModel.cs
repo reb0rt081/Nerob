@@ -10,12 +10,14 @@ namespace Nerob.Client.Modules.Picking.ViewModels
     {
         string ItemName { get; set; }
 
+        string ItemDescription { get; set; }
+
         string ItemImagePath { get; set; }
 
         string ItemBarcode { get; set; }
 
         string ItemLocation { get; set; }
 
-        int QuantityPicked { get; set; }
+        int QuantitySelected { get; set; }
     }
 }

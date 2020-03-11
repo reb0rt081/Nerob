@@ -26,7 +26,7 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" Content="Description" Style="{StaticResource LabelStyle}" FontSize="20"/>
-                <TextBlock Grid.Row="1" Style="{StaticResource TextBlockStyle}" Text="Tornifeijfdfdjfhdsj jfdhfjdhf d fhdgfhdsg dhfdgf jdfgd jf dfdsfjsdgf dsjhfgdsjfds fshdgfsdjh f roberto ribes minguez final del texto" />
+                <TextBlock Grid.Row="1" Style="{StaticResource TextBlockStyle}" Text="{Binding ItemDescription}" />
             </Grid>
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
@@ -47,7 +47,7 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Button Grid.Column="0" Content="&#x2212;" FontSize="45" Style="{StaticResource RoundButtonStyle}" />
-                    <Label Grid.Column="1"  Content="1" FontSize="45" Style="{StaticResource LabelStyle}"/>
+                    <Label Grid.Column="1"  Content="{Binding Path=QuantitySelected}" FontSize="45" Style="{StaticResource LabelStyle}"/>
                     <Button Grid.Column="2" Content="&#x002B;" FontSize="45" Style="{StaticResource RoundButtonStyle}"/>
                 </Grid>
                 <Button Grid.Row="4" Click="ButtonBase_OnClick" Style="{StaticResource ButtonStyle}">
@@ -65,7 +65,7 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" Content="Location" Style="{StaticResource LabelStyle}" FontSize="20"/>
-                <TextBlock Grid.Row="1" Style="{StaticResource TextBlockStyle}" Text="Pasillo 1 / Armario 2 / Estanteria 4 / Posición 3" />
+                <TextBlock Grid.Row="1" Style="{StaticResource TextBlockStyle}" Text="{Binding Path=ItemLocation}" />
             </Grid>
         </Grid>
     </Grid>
