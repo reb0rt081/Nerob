@@ -39,7 +39,7 @@
                 <Label Grid.Row="0" Content="{Binding Path=InventoryInformation.ItemName}" Style="{StaticResource LabelStyle}" FontSize="20"/>
                 <Image Grid.Row="1" Source="{Binding Path=ItemImagePath}" HorizontalAlignment="Stretch" 
                        Margin="5,5,5,5" Stretch="Fill" VerticalAlignment="Stretch" />
-                <Controls:NerobScannerControl Grid.Row="2" VerticalAlignment="Stretch"/>
+                <Controls:NerobScannerControl Grid.Row="2" ClearTextOnSubmit="True"  VerticalAlignment="Stretch"/>
                 <Grid Grid.Row="3" HorizontalAlignment="Stretch" Margin="30,10,30,10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>

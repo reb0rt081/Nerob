@@ -13,8 +13,8 @@
                 </ResourceDictionary.MergedDictionaries>
             </ResourceDictionary>
         </StackPanel.Resources>
-        <Label HorizontalAlignment="Left" Content="BARCODE"  Style="{StaticResource LabelStyle}"/>
-        <TextBox Style="{StaticResource TextBoxStyle}"/>
+        <Label HorizontalAlignment="Left" Content="BARCODE" Style="{StaticResource LabelStyle}"/>
+        <TextBox Style="{StaticResource TextBoxStyle}" Name="barcodeScannedTextBox" KeyDown="TextBox_OnKeyDown"/>
         <Separator Style="{StaticResource SeparatorStyle}"/>
     </StackPanel>
 </UserControl>

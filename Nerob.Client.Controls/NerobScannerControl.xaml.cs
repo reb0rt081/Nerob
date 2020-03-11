@@ -20,9 +20,68 @@ namespace Nerob.Client.Controls
     /// </summary>
     public partial class NerobScannerControl : UserControl
     {
+        private Window window;
         public NerobScannerControl()
         {
             InitializeComponent();
+        }
+
+        // Using a DependencyProperty as the backing store for ClearTextOnSubmit.  This enables animation, styling, binding, etc...
+        //public static readonly DependencyProperty ClearTextOnSubmitProperty = DependencyProperty.Register("ClearTextOnSubmit",
+        //    typeof(bool),
+        //    typeof(NerobScannerControl),
+        //    new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.AffectsRender));
+
+
+        public bool ClearTextOnSubmit { get; set; }
+
+        /// <summary>
+        ///     Submitted event
+        /// </summary>
+        public event EventHandler<string> ScanSubmitted;
+
+        public override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate();
+
+            window = Window.GetWindow(barcodeScannedTextBox);
+
+            if(window != null)
+            {
+                window.PreviewKeyDown += ParentWindowPreviewKeyDown;
+                IsVisibleChanged += OnIsVisibleChanged;
+            }
+        }
+
+        private void OnIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (IsVisible)
+            {
+                window.PreviewKeyDown += ParentWindowPreviewKeyDown;
+            }
+            else
+            {
+                window.PreviewKeyDown -= ParentWindowPreviewKeyDown;
+            }
+        }
+
+        private void ParentWindowPreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            Keyboard.Focus(barcodeScannedTextBox);
+        }
+
+        private void TextBox_OnKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter || e.Key == Key.Tab)
+            {
+                ScanSubmitted?.Invoke(this, barcodeScannedTextBox.Text);
+
+                if(ClearTextOnSubmit)
+                {
+                    barcodeScannedTextBox.Clear();
+                }
+                
+            }
         }
     }
 }
