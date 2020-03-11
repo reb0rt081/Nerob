@@ -39,5 +39,10 @@ namespace Nerob.Client.Modules.Picking.Views
         {
             InitializeComponent();
         }
+
+        private void NerobScannerControl_OnScanSubmitted(object sender, string e)
+        {
+            PickingViewModel.BarcodeEnteredCommand.Execute(e);
+        }
     }
 }

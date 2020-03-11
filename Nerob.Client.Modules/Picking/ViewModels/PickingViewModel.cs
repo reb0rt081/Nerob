@@ -27,6 +27,7 @@ namespace Nerob.Client.Modules.Picking.ViewModels
         [InjectionMethod]
         public void Initialize()
         {
+            BarcodeEnteredCommand = new DelegateCommand<string>(OnBarcodeEnteredCommandExecuted);
             ConfirmPickCommand = new DelegateCommand(OnPickConfirmCommandExecuted, OnPickConfirmCommandCanExecute);
             IncreaseQuantityCommand = new DelegateCommand(OnIncreaseQuantityCommandExecuted, OnIncreaseQuantityCommandCanExecute);
             DecreaseQuantityCommand = new DelegateCommand(OnDecreaseQuantityCommandExecuted, OnDecreaseQuantityCommandCanExecute);
@@ -35,6 +36,7 @@ namespace Nerob.Client.Modules.Picking.ViewModels
         #endregion
 
         #region Commands
+        public DelegateCommand<string> BarcodeEnteredCommand { get; set; }
 
         public DelegateCommand ConfirmPickCommand { get; set; }
 
@@ -73,6 +75,31 @@ namespace Nerob.Client.Modules.Picking.ViewModels
             ItemImagePath = @"pack://application:,,,/Nerob.Client.Shared;component/Images/questionMark.png";
             QuantitySelected = 0;
         }
+
+        private void OnBarcodeEnteredCommandExecuted(string barcode)
+        {
+            if(InventoryInformation == null || InventoryInformation.ItemBarcode != barcode)
+            {
+                InventoryInformation = new InventoryInformation()
+                {
+                    ItemName = "Tornillos",
+                    ItemDescription = @"D:\TGW\bin\PDEnvironment\SCOTe.Agent\v2\Projects\BuildSolution.proj(221,5): warning : CompleteTransportRequest.cs(15,18): warning CS1591: Missing XML comment for publicly visible type or member 'CompleteTransportRequest' [D:\_B\6837055\B\8\Products\SharedCode\ManualTransports\ManualTransports.Facade.Messages\ManualTransports.Facade.Messages.csproj] D:\TGW\bin\PDEnvironment\SCOTe.Agent\v2\Projects\BuildSolution.proj(221, 5): warning : CompleteTransportResponse.cs(16, 18): warning CS1591: Missing XML comment for publicly visible type or member 'CompleteTransportResponse'[D:\_B\6837055\B\8\Products\SharedCode\ManualTransports\ManualTransports.Facade.Messages\ManualTransports.Facade.Messages.csproj]",
+                    ItemLocation = "Pasillo 1 / Armario 2 / Estanteria 4 / Posición 3",
+                    QuantityAvailable = 10,
+                    ItemBarcode = barcode
+                };
+
+                ItemImagePath = @"C:\Users\rbo\Pictures\tornillos.jpg";
+                QuantitySelected = 1;
+            }
+            else
+            {
+                QuantitySelected++;
+            }
+
+            RaisePropertiesChanged();
+        }
+
         private void OnIncreaseQuantityCommandExecuted()
         {
             QuantitySelected++;
@@ -97,6 +124,10 @@ namespace Nerob.Client.Modules.Picking.ViewModels
 
         private void OnPickConfirmCommandExecuted()
         {
+            ResetView();
+
+            RaisePropertiesChanged();
+
             RegionManager.RequestNavigate(Shared.Constants.MainRegion, typeof(StockCountView).Name);
         }
 
@@ -107,6 +138,8 @@ namespace Nerob.Client.Modules.Picking.ViewModels
 
         private void RaisePropertiesChanged()
         {
+            RaisePropertyChanged(nameof(InventoryInformation));
+            RaisePropertyChanged(nameof(ItemImagePath));
             RaisePropertyChanged(nameof(QuantitySelected));
             DecreaseQuantityCommand.RaiseCanExecuteChanged();
             IncreaseQuantityCommand.RaiseCanExecuteChanged();
