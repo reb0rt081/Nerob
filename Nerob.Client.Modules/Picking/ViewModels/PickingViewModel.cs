@@ -28,7 +28,7 @@ namespace Nerob.Client.Modules.Picking.ViewModels
         public void Initialize()
         {
             IncreaseQuantityCommand = new DelegateCommand(OnIncreaseQuantityCommandExecuted);
-            DecreaseQuantityCommand = new DelegateCommand(OnDecreaseQuantityCommandExecuted);
+            DecreaseQuantityCommand = new DelegateCommand(OnDecreaseQuantityCommandExecuted, OnDecreaseQuantityCommandCanExecute);
         }
 
         #endregion
@@ -62,15 +62,25 @@ namespace Nerob.Client.Modules.Picking.ViewModels
         private void OnIncreaseQuantityCommandExecuted()
         {
             QuantitySelected++;
-            RaisePropertyChanged(nameof(QuantitySelected));
+            RaisePropertiesChanged();
         }
 
         private void OnDecreaseQuantityCommandExecuted()
         {
             QuantitySelected--;
-            RaisePropertyChanged(nameof(QuantitySelected));
+            RaisePropertiesChanged();
         }
 
+        private bool OnDecreaseQuantityCommandCanExecute()
+        {
+            return QuantitySelected > 0;
+        }
+
+        private void RaisePropertiesChanged()
+        {
+            RaisePropertyChanged(nameof(QuantitySelected));
+            DecreaseQuantityCommand.RaiseCanExecuteChanged();
+        }
         #endregion
     }
 }
