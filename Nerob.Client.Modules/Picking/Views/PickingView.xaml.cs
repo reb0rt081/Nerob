@@ -31,7 +31,14 @@ namespace Nerob.Client.Modules.Picking.Views
         public IRegionManager RegionManager { get; set; }
 
         [Dependency]
-        public IPickingViewModel PickingViewModel { get; set; }
+        public IPickingViewModel PickingViewModel
+        {
+            get { return (IPickingViewModel) DataContext; }
+            set
+            {
+                DataContext = value;
+            }
+        }
 
         public PickingView()
         {
