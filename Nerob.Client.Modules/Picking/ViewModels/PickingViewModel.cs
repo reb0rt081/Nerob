@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Nerob.Shared;
+
 using Prism.Commands;
 using Prism.Mvvm;
 
@@ -17,17 +19,23 @@ namespace Nerob.Client.Modules.Picking.ViewModels
 
         public PickingViewModel()
         {
-            ItemName = "Tornillos";
+            InventoryInformation = new InventoryInformation()
+            {
+                ItemName = "Tornillos",
+                ItemDescription = "Tornifeijfdfdjfhdsj jfdhfjdhf d fhdgfhdsg dhfdgf jdfgd jf dfdsfjsdgf dsjhfgdsjfds fshdgfsdjh f roberto ribes minguez final del texto",
+                ItemLocation = "Pasillo 1 / Armario 2 / Estanteria 4 / Posición 3",
+                QuantityAvailable = 10,
+                ItemBarcode = "1011"
+            };
+            
             ItemImagePath = @"C:\Users\rbo\Pictures\tornillos.jpg";
-            ItemDescription = "Tornifeijfdfdjfhdsj jfdhfjdhf d fhdgfhdsg dhfdgf jdfgd jf dfdsfjsdgf dsjhfgdsjfds fshdgfsdjh f roberto ribes minguez final del texto";
-            ItemLocation = "Pasillo 1 / Armario 2 / Estanteria 4 / Posición 3";
             QuantitySelected = 0;
         }
 
         [InjectionMethod]
         public void Initialize()
         {
-            IncreaseQuantityCommand = new DelegateCommand(OnIncreaseQuantityCommandExecuted);
+            IncreaseQuantityCommand = new DelegateCommand(OnIncreaseQuantityCommandExecuted, OnIncreaseQuantityCommandCanExecute);
             DecreaseQuantityCommand = new DelegateCommand(OnDecreaseQuantityCommandExecuted, OnDecreaseQuantityCommandCanExecute);
         }
 
@@ -43,15 +51,9 @@ namespace Nerob.Client.Modules.Picking.ViewModels
 
         #region Properties
 
-        public string ItemDescription { get; set; }
+        public InventoryInformation InventoryInformation { get; set; }
 
         public string ItemImagePath { get; set; }
-
-        public string ItemName { get; set; }
-
-        public string ItemBarcode { get; set; }
-
-        public string ItemLocation { get; set; }
 
         public int QuantitySelected { get; set; }
 
@@ -76,10 +78,16 @@ namespace Nerob.Client.Modules.Picking.ViewModels
             return QuantitySelected > 0;
         }
 
+        private bool OnIncreaseQuantityCommandCanExecute()
+        {
+            return InventoryInformation!= null && QuantitySelected < InventoryInformation.QuantityAvailable ;
+        }
+
         private void RaisePropertiesChanged()
         {
             RaisePropertyChanged(nameof(QuantitySelected));
             DecreaseQuantityCommand.RaiseCanExecuteChanged();
+            IncreaseQuantityCommand.RaiseCanExecuteChanged();
         }
         #endregion
     }

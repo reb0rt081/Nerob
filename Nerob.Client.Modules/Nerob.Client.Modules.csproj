@@ -116,6 +116,10 @@
       <Project>{0DD9D973-62F7-4ECB-9AC5-C3A8AA7BD031}</Project>
       <Name>Nerob.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Nerob.Shared\Nerob.Shared.csproj">
+      <Project>{3CC21C0B-2715-42A5-9773-14836DFBB0B7}</Project>
+      <Name>Nerob.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Page Include="Picking\Ribbon\PickingRibbon.xaml">

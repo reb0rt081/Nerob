@@ -11,8 +11,8 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="65*"/>
-            <RowDefinition Height="15*"/>
+            <RowDefinition Height="72*"/>
+            <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
         <ContentControl Grid.Row="0" regions:RegionManager.RegionName="{x:Static Shared:Constants.RibbonRegion}" />
         <ContentControl Grid.Row="1" regions:RegionManager.RegionName="{x:Static Shared:Constants.MainRegion}" />

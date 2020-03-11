@@ -26,7 +26,7 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" Content="Description" Style="{StaticResource LabelStyle}" FontSize="20"/>
-                <TextBlock Grid.Row="1" Style="{StaticResource TextBlockStyle}" Text="{Binding ItemDescription}" />
+                <TextBlock Grid.Row="1" Style="{StaticResource TextBlockStyle}" Text="{Binding Path =InventoryInformation.ItemDescription}" />
             </Grid>
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
@@ -36,7 +36,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Label Grid.Row="0" Content="{Binding Path=ItemName}" Style="{StaticResource LabelStyle}" FontSize="20"/>
+                <Label Grid.Row="0" Content="{Binding Path=InventoryInformation.ItemName}" Style="{StaticResource LabelStyle}" FontSize="20"/>
                 <Image Grid.Row="1" Source="{Binding Path=ItemImagePath}" HorizontalAlignment="Stretch" 
                        Margin="5,5,5,5" Stretch="Fill" VerticalAlignment="Stretch" />
                 <Controls:NerobScannerControl Grid.Row="2" VerticalAlignment="Stretch"/>
@@ -65,7 +65,7 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" Content="Location" Style="{StaticResource LabelStyle}" FontSize="20"/>
-                <TextBlock Grid.Row="1" Style="{StaticResource TextBlockStyle}" Text="{Binding Path=ItemLocation}" />
+                <TextBlock Grid.Row="1" Style="{StaticResource TextBlockStyle}" Text="{Binding Path=InventoryInformation.ItemLocation}" />
             </Grid>
         </Grid>
     </Grid>
