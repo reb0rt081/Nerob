@@ -66,11 +66,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NerobModule.cs" />
+    <Compile Include="Helpers\ModuleExtensionMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Nerob.Client.Shared\Nerob.Client.Shared.csproj">
+      <Project>{f61de32b-cad1-4bd4-9213-043d31d0bf06}</Project>
+      <Name>Nerob.Client.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

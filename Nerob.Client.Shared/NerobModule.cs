@@ -8,7 +8,7 @@ using Prism.Modularity;
 using Prism.Regions;
 using Unity;
 
-namespace Nerob.Client.Core
+namespace Nerob.Client.Shared
 {
     public abstract class NerobModule : IModule
     {
@@ -20,6 +20,7 @@ namespace Nerob.Client.Core
 
         public abstract void RegisterTypes(IContainerRegistry containerRegistry);
 
+        public abstract NerobModuleInfo GetModuleInfo();
 
         public abstract void OnInitialized(IContainerProvider containerProvider);
     }

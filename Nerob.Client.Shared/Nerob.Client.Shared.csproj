@@ -72,14 +72,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
-    <Compile Include="Helpers\ModuleExtensionMethods.cs" />
+    <Compile Include="NerobModule.cs" />
+    <Compile Include="NerobModuleInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Nerob.Client.Core\Nerob.Client.Core.csproj">
-      <Project>{AE838417-8879-4CA5-9494-9E6F2CCA5225}</Project>
-      <Name>Nerob.Client.Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -115,6 +110,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\questionMark.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\picking_icon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Nerob.Client.Core;
+using Nerob.Client.Core.Helpers;
 using Nerob.Client.Modules.Picking.Ribbon;
 using Nerob.Client.Modules.Picking.ViewModels;
 using Nerob.Client.Modules.Picking.Views;
-using Nerob.Client.Shared.Helpers;
+using Nerob.Client.Shared;
+
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
@@ -25,6 +27,15 @@ namespace Nerob.Client.Modules.Picking
             containerRegistry.RegisterForNavigation<PickingRibbon>();
             containerRegistry.RegisterForNavigation<PickingView>();
             containerRegistry.RegisterForNavigation<LocationView>();
+        }
+
+        public override NerobModuleInfo GetModuleInfo()
+        {
+            return new NerobModuleInfo()
+            {
+                Name = "Picking",
+                ImageUri = "pack://application:,,,/Nerob.Client.Shared;component/Images/picking_icon.png"
+            };
         }
 
         public override void OnInitialized(IContainerProvider containerProvider)

@@ -24,6 +24,8 @@ namespace Nerob.Client.Shared
 
         public const string LocationView = nameof(LocationView);
 
+        public const string MainMenuView = nameof(MainMenuView);
+
         #endregion
 
         #region Ribbons

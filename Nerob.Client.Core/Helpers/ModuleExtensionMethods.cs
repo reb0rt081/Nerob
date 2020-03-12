@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Nerob.Client.Core;
+
+using Nerob.Client.Shared;
+
 using Unity.Lifetime;
 using Unity;
 
-namespace Nerob.Client.Shared.Helpers
+namespace Nerob.Client.Core.Helpers
 {
     public static class ModuleExtensionMethods
     {

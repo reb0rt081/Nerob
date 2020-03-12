@@ -41,6 +41,22 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <Style x:Key="MenuButtonStyle" TargetType="Button">
+        <Setter Property="BorderThickness" Value="10"/>
+        <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="Margin" Value="10,5,10,5"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="15" Background="White" BorderThickness="1" Padding="2" BorderBrush="Black">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     <Style x:Key="GridStyle" TargetType="Grid">
         <Setter Property="Background" Value="WhiteSmoke"/>        
     </Style>
