@@ -11,5 +11,7 @@ namespace Nerob.Client.Shared
     {
         public string Name { get; set; }
         public string ImageUri { get; set; }
+
+        public string MainViewUri { get; set; }
     }
 }

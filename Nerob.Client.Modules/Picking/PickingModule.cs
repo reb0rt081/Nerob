@@ -34,6 +34,7 @@ namespace Nerob.Client.Modules.Picking
             return new NerobModuleInfo()
             {
                 Name = "Picking",
+                MainViewUri = typeof(LocationView).Name,
                 ImageUri = "pack://application:,,,/Nerob.Client.Shared;component/Images/picking_icon.png"
             };
         }

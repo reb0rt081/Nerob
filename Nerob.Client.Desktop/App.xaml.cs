@@ -59,7 +59,7 @@ namespace Nerob.Client.Desktop
             {
                 var moduleInfo = nerobModule.GetModuleInfo();
 
-                Button pickingButton = GetModuleMenuButton(regionManager, moduleInfo.Name, moduleInfo.ImageUri);
+                Button pickingButton = GetModuleMenuButton(regionManager, moduleInfo);
 
                 MainMenu.menuPanel.Children.Add(pickingButton);
             }
@@ -69,23 +69,26 @@ namespace Nerob.Client.Desktop
             regionManager.RequestNavigate(Shared.Constants.MainRegion, typeof(MainMenuView).Name);
         }
 
-        protected Button GetModuleMenuButton(IRegionManager regionManager, string buttonText, string imageUri)
+        protected Button GetModuleMenuButton(IRegionManager regionManager, NerobModuleInfo nerobModuleInfo)
         {
             Button pickingButton = new Button();
             StackPanel stackPanel = new StackPanel()
             {
                 Orientation = Orientation.Vertical
             };
+
             pickingButton.Content = stackPanel;
             stackPanel.Children.Add(new Label()
             {
                 HorizontalAlignment = HorizontalAlignment.Center,
-                Content = buttonText
+                Content = nerobModuleInfo.Name
             });
-            stackPanel.Children.Add(new Image() { Width = 200, Height = 200, Source = new BitmapImage(new Uri(imageUri)) });
+
+            stackPanel.Children.Add(new Image() { Width = 200, Height = 200, Source = new BitmapImage(new Uri(nerobModuleInfo.ImageUri)) });
+
             pickingButton.HorizontalAlignment = HorizontalAlignment.Stretch;
             pickingButton.Style = MainMenu.mainGrid.Resources["MenuButtonStyle"] as Style;
-            pickingButton.Command = new DelegateCommand(() => regionManager.RequestNavigate(Shared.Constants.MainRegion, typeof(LocationView).Name));
+            pickingButton.Command = new DelegateCommand(() => regionManager.RequestNavigate(Shared.Constants.MainRegion, nerobModuleInfo.MainViewUri));
 
             return pickingButton;
         }
