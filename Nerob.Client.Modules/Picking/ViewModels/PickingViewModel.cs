@@ -15,7 +15,7 @@ using Unity;
 
 namespace Nerob.Client.Modules.Picking.ViewModels
 {
-    public class PickingViewModel : BindableBase, IPickingViewModel
+    public class PickingViewModel : BindableBase, INavigationAware, IPickingViewModel
     {
         #region Constructor and Initialize
 
@@ -164,5 +164,25 @@ namespace Nerob.Client.Modules.Picking.ViewModels
         }
 
         #endregion
+
+        #region Navigation
+
+        public void OnNavigatedTo(NavigationContext navigationContext)
+        {
+            RaisePropertiesChanged();
+        }
+
+        public bool IsNavigationTarget(NavigationContext navigationContext)
+        {
+            return true;
+        }
+
+        public void OnNavigatedFrom(NavigationContext navigationContext)
+        {
+            
+        }
+
+        #endregion
+
     }
 }
