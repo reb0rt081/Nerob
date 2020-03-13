@@ -28,12 +28,13 @@ namespace Nerob.Client.Modules.Picking.Ribbon
         }
 
         [Dependency]
-        public IRegionManager RegionManager { get; set; }
-
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        public PickingModule PickingModule
         {
-            var mainregion = RegionManager.Regions[Shared.Constants.MainRegion];
-            mainregion.NavigationService.Journal.GoBack();
+            get { return (PickingModule) DataContext; }
+            set
+            {
+                DataContext = value;
+            }
         }
     }
 }

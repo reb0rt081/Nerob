@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Nerob.Client.Modules.Picking.Ribbon"
+             xmlns:controls="clr-namespace:Nerob.Client.Controls;assembly=Nerob.Client.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <DockPanel>
@@ -19,7 +20,7 @@
             </Ribbon.ApplicationMenu>
             <RibbonTab Header="Home" KeyTip="H" >
                 <RibbonGroup Header="Actions">
-                    <RibbonButton LargeImageSource="pack://application:,,,/Nerob.Client.Shared;component/Images/back_icon.png" Click="ButtonBase_OnClick" Label="Back" KeyTip="X" />
+                    <controls:NerobBackRibbonButton LargeImageSource="pack://application:,,,/Nerob.Client.Shared;component/Images/back_icon.png" KeyTip="X" />
                 </RibbonGroup>
             </RibbonTab>
             <!-- Ribbon Tab #2: -->
