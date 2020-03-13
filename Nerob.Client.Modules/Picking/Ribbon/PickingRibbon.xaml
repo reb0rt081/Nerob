@@ -19,7 +19,7 @@
             </Ribbon.ApplicationMenu>
             <RibbonTab Header="Home" KeyTip="H" >
                 <RibbonGroup Header="Actions">
-                    <RibbonButton LargeImageSource="pack://application:,,,/Nerob.Client.Shared;component/Images/save_icon.png" Label="Save" KeyTip="X" />
+                    <RibbonButton LargeImageSource="pack://application:,,,/Nerob.Client.Shared;component/Images/back_icon.png" Click="ButtonBase_OnClick" Label="Back" KeyTip="X" />
                 </RibbonGroup>
             </RibbonTab>
             <!-- Ribbon Tab #2: -->

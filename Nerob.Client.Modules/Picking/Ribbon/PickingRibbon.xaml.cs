@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Prism.Regions;
+using Unity;
 
 namespace Nerob.Client.Modules.Picking.Ribbon
 {
@@ -23,6 +25,15 @@ namespace Nerob.Client.Modules.Picking.Ribbon
         public PickingRibbon()
         {
             InitializeComponent();
+        }
+
+        [Dependency]
+        public IRegionManager RegionManager { get; set; }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            var mainregion = RegionManager.Regions[Shared.Constants.MainRegion];
+            mainregion.NavigationService.Journal.GoBack();
         }
     }
 }

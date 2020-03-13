@@ -112,7 +112,7 @@ namespace Nerob.Client.Modules.Picking.ViewModels
             if (!string.IsNullOrEmpty(barcode))
             {
                 RaisePropertiesChanged();
-
+                
                 RegionManager.RequestNavigate(Shared.Constants.MainRegion, typeof(PickingView).Name);
             }
         }
@@ -136,7 +136,7 @@ namespace Nerob.Client.Modules.Picking.ViewModels
 
         private bool OnIncreaseQuantityCommandCanExecute()
         {
-            return InventoryInformation!= null && QuantitySelected < InventoryInformation.QuantityAvailable ;
+            return InventoryInformation!= null && QuantitySelected < InventoryInformation.QuantityAvailable;
         }
 
         private void OnPickConfirmCommandExecuted()
