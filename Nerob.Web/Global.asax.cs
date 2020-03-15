@@ -16,6 +16,13 @@ namespace Nerob.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            WebLoader();
+        }
+
+        protected void WebLoader()
+        {
+
         }
     }
 }
