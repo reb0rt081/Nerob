@@ -7,6 +7,7 @@ using System.Web.Http;
 
 namespace Nerob.Web.Controllers
 {
+    // This is a Web API, it just can handle data and return data to the HTML
     public class PickingController : ApiController
     {
         // GET: api/Picking
