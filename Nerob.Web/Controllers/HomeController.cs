@@ -26,5 +26,12 @@ namespace Nerob.Web.Controllers
 
             return View();
         }
+
+        public ActionResult Picking()
+        {
+            ViewBag.Message = "Your picking page.";
+
+            return View();
+        }
     }
 }

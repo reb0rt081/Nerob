@@ -22,6 +22,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Picking", "Picking", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
@@ -29,7 +30,7 @@
         </div>
     </div>
     <div class="container body-content">
-        <!-- The attached html page is rendered in here-->
+        <!-- The attached html body page is rendered in here-->
         @RenderBody()
         <hr />
         <footer>
