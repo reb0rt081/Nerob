@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Nerob.Shared;
 
 namespace Nerob.Web.Controllers
 {
@@ -11,24 +12,40 @@ namespace Nerob.Web.Controllers
     public class PickingController : ApiController
     {
         // GET: api/Picking
-        public IEnumerable<string> Get()
+        public IEnumerable<InventoryInformation> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new List<InventoryInformation>{
+                new InventoryInformation()
+                {
+                    ItemName = "Scan Item",
+                    ItemDescription = string.Empty,
+                    ItemLocation = "Pasillo 1 / Armario 2 / Estanteria 4 / Posición 3",
+                    QuantityAvailable = 0,
+                    ItemBarcode = string.Empty
+                }
+            };
         }
 
         // GET: api/Picking/5
-        public string Get(int id)
+        public InventoryInformation Get(int id)
         {
-            return "value";
+            return new InventoryInformation()
+            {
+                ItemName = "Scan Item",
+                ItemDescription = string.Empty,
+                ItemLocation = "Pasillo 1 / Armario 2 / Estanteria 4 / Posición 3",
+                QuantityAvailable = 0,
+                ItemBarcode = string.Empty
+            };
         }
 
         // POST: api/Picking
-        public void Post([FromBody]string value)
+        public void Post([FromBody]InventoryInformation value)
         {
         }
 
         // PUT: api/Picking/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody]InventoryInformation value)
         {
         }
 

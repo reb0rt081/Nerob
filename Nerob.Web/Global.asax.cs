@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Dispatcher;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Nerob.Web.App_Start;
 
 namespace Nerob.Web
 {
@@ -24,7 +26,8 @@ namespace Nerob.Web
 
         protected void WebLoader()
         {
-
+            PickingControllerActivator pickingControllerActivator = new PickingControllerActivator();
+            GlobalConfiguration.Configuration.Services.Replace(typeof(IHttpControllerActivator), pickingControllerActivator);
         }
     }
 }
