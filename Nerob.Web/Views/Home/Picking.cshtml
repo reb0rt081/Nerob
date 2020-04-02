@@ -3,6 +3,8 @@
     ViewBag.Title = "Picking";
 }
 <!--Remember html code is read from top to bottom, the scripts should be run at the end-->
+<!--Remember all the resources in a website need to be inside the website, this includes images-->
+<!--If some resources need to be in a separate place not accessible there should be another website as another project or third party-->
 <html>
     <head>
         <style type="text/css">
@@ -31,7 +33,7 @@
         <div id="fecha"></div>
     </div>
     <div id="centerDiv" class="centerColumn">
-        <!--<h2 id="itemName"></h2>-->
+        <img id="itemImage" />
     </div>
     <div class="rightColumn">
         <button onclick="reset()">Click me</button>
@@ -62,7 +64,8 @@
                 $.each(data,
                     function(key, item) {
                         // Add a list item for the product.
-                        $('<h2>', { text: item.ItemName }).appendTo($('#centerDiv'));
+                        // prependTo() {beginning of element} is the opposite to appendTo() {end of element}
+                        $('<h2>', { text: item.ItemName }).prependTo($('#centerDiv'));
                     });
             });
         //var element = $(document).getElementById("itemName");
@@ -72,7 +75,10 @@
     function reset() {
         var tag = $('#itemName');
         tag.html("RBO");
-        
+
+        document.getElementById("itemImage").src = "../Images/questionMark.png";
+
+        tag.html(document.getElementById("itemImage").src);
     }
 </script>
 <script type="text/javascript">
