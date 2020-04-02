@@ -8,9 +8,10 @@
 <html>
     <head>
         <style type="text/css">
+            img { max-width:100%; }
             body { font-family: Arial, Helvetica, sans-serif; }
             h1 { font-size: 3.0em;}
-            h2, h3 { font-size:1.5em; align-content: center}
+            h2, h3 { max-width:100%; font-size:1.5em; align-content: center}
             em { color: orange; }
             strong { color: red; }
             .leftColumn{ grid-column: 1 }
@@ -19,7 +20,8 @@
             .wrapper {
                 display: grid;
                 height: 100%;
-                grid-template-columns: repeat(3, 1fr);
+                width: 100%;
+                grid-template-columns: repeat(auto-fill, 1fr);
                 grid-gap: 10px;
                 grid-auto-rows: minmax(100px, auto);
             }
@@ -36,8 +38,9 @@
         <img id="itemImage" />
     </div>
     <div class="rightColumn">
+        <h2>Location</h2>
         <button onclick="reset()">Click me</button>
-        <h2 id="itemName">Location</h2>
+        <div id="imagePath"></div>
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -73,7 +76,7 @@
     });
 
     function reset() {
-        var tag = $('#itemName');
+        var tag = $('#imagePath');
         tag.html("RBO");
 
         document.getElementById("itemImage").src = "../Images/questionMark.png";
