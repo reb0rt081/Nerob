@@ -32,9 +32,10 @@
             }
             em { color: orange; }
             strong { color: red; }
-            .leftColumn{ 
+            .leftColumn {
                 grid-column: 1;
                 min-width: 100%;
+                padding: 20px;
             }
             .centerColumn {
                 grid-column: 2;
@@ -44,6 +45,7 @@
             .rightColumn {
                 grid-column: 3;
                 min-width: 100%;
+                padding: 20px;
             }
             .wrapper {
                 display: grid;
@@ -63,7 +65,7 @@
         <div id="fecha"></div>
     </div>
     <div id="centerDiv" class="centerColumn">
-        <img id="itemImage" />
+        <img id="itemImage"/>
         <button onclick="reset()">
             <div>&#10004;</div>
             <div>Confirm</div>
