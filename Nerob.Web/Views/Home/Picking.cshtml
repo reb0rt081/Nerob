@@ -9,15 +9,42 @@
 <html>
     <head>
         <style type="text/css">
-            img { max-width:100%; }
+            button {
+                display: block;
+                margin: 20px;
+                width: 100%;
+                color: white;
+                height: auto;
+                background: limegreen;
+                border: none;
+            }
+            img {
+                max-width: 100%;
+                margin: 20px;
+            }
             body { font-family: Arial, Helvetica, sans-serif; }
             h1 { font-size: 3.0em;}
-            h2, h3 { max-width:100%; font-size:1.5em; align-content: center}
+            h2, h3 {
+                max-width: 100%;
+                font-size: 1.5em;
+                text-align: center;
+                margin: 20px;
+            }
             em { color: orange; }
             strong { color: red; }
-            .leftColumn{ grid-column: 1 }
-            .centerColumn { grid-column: 2 }
-            .rightColumn { grid-column: 3}
+            .leftColumn{ 
+                grid-column: 1;
+                min-width: 100%;
+            }
+            .centerColumn {
+                grid-column: 2;
+                min-width: 100%;
+                padding: 20px;
+            }
+            .rightColumn {
+                grid-column: 3;
+                min-width: 100%;
+            }
             .wrapper {
                 display: grid;
                 height: 100%;
@@ -37,10 +64,13 @@
     </div>
     <div id="centerDiv" class="centerColumn">
         <img id="itemImage" />
+        <button onclick="reset()">
+            <div>&#10004;</div>
+            <div>Confirm</div>
+        </button>
     </div>
     <div class="rightColumn">
         <h2>Location</h2>
-        <button onclick="reset()">Click me</button>
         <div id="imagePath"></div>
     </div>
 </div>
@@ -74,6 +104,8 @@
             });
         //var element = $(document).getElementById("itemName");
         //element.value = "test";
+
+        reset();
     });
 
     function reset() {
