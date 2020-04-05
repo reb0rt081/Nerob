@@ -62,7 +62,7 @@
 <div class="wrapper">
     <div class="leftColumn">
         <h2>Description</h2>
-        <div id="fecha"></div>
+        <div id="itemDescription"></div>
     </div>
     <div id="centerDiv" class="centerColumn">
         <img id="itemImage"/>
@@ -73,7 +73,7 @@
     </div>
     <div class="rightColumn">
         <h2>Location</h2>
-        <div id="imagePath"></div>
+        <div id="itemLocation"></div>
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -89,10 +89,13 @@
     //  Code included inside $(document).ready() will only run once the page Document Object Model(DOM) is ready for JavaScript code to execute.
     //  Remember the DOM is read from top to bottom. ready() will be called once the whole document has been read.
 
+    var itemLocation;
+
     $(document).ready(function() {
         // In jQuery, the $ sign it's just an alias to jQuery(), then an alias to a function.
         // .getJSON always returns result 'data'.
         // Send an AJAX request
+        //  This seems to be async, so for the itemLocation to be updated we need to be here
         $.getJSON(apiUrl + 'maxItems=100')
             .done(function(data) {
                 // The .each() method is designed to make DOM looping constructs concise and less error-prone.
@@ -101,26 +104,33 @@
                     function(key, item) {
                         // Add a list item for the product.
                         // prependTo() {beginning of element} is the opposite to appendTo() {end of element}
+                        itemLocation = item.ItemLocation;
                         $('<h2>', { text: item.ItemName }).prependTo($('#centerDiv'));
                     });
+
+                reset(itemLocation);
             });
         //var element = $(document).getElementById("itemName");
         //element.value = "test";
-
-        reset();
     });
 
-    function reset() {
-        var tag = $('#imagePath');
+    function reset(location) {
+        var tag = $('#itemLocation');
         tag.html("RBO");
 
-        document.getElementById("itemImage").src = "../Images/questionMark.png";
+        var imagePath = "../Images/questionMark.png";
+        if (location === undefined) {
+            location = imagePath;
+        }
 
-        tag.html(document.getElementById("itemImage").src);
+        document.getElementById("itemImage").src = imagePath;
+
+        tag.html(location);
     }
+
 </script>
 <script type="text/javascript">
-    document.getElementById("fecha").innerHTML = new Date();
+    document.getElementById("itemDescription").innerHTML = new Date();
 </script>
 </body >
 </html >
