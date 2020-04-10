@@ -9,6 +9,11 @@
 <html>
     <head>
         <style type="text/css">
+            .contentClass {
+                margin: 20px;
+                font-weight: bold;
+                font-size: 12px;
+            }
             button {
                 display: block;
                 margin: 20px;
@@ -33,27 +38,25 @@
             em { color: orange; }
             strong { color: red; }
             .leftColumn {
-                grid-column: 1;
-                min-width: 100%;
+                min-width: 33%;
+                max-width: 33%;
                 padding: 20px;
             }
             .centerColumn {
-                grid-column: 2;
-                min-width: 100%;
+                min-width: 33%;
+                max-width: 33%;
                 padding: 20px;
             }
             .rightColumn {
-                grid-column: 3;
-                min-width: 100%;
+                min-width: 33%;
+                max-width: 33%;
                 padding: 20px;
             }
             .wrapper {
-                display: grid;
+                display: flex;
                 height: 100%;
                 width: 100%;
-                grid-template-columns: repeat(auto-fill, 1fr);
-                grid-gap: 10px;
-                grid-auto-rows: minmax(100px, auto);
+                flex-direction: row
             }
         </style>
     </head>
@@ -65,7 +68,8 @@
         <div id="itemDescription"></div>
     </div>
     <div id="centerDiv" class="centerColumn">
-        <img id="itemImage"/>
+        <img id="itemImage" />
+        <div class="contentClass" align="left">BARCODE</div>
         <button onclick="reset()">
             <div>&#10004;</div>
             <div>Confirm</div>
