@@ -27,15 +27,17 @@ namespace Nerob.Web.Controllers
         }
 
         // GET: api/Picking/5
-        public InventoryInformation Get(int id)
+        public IEnumerable<InventoryInformation> Get(int id)
         {
-            return new InventoryInformation()
-            {
-                ItemName = "Scan Item",
-                ItemDescription = string.Empty,
-                ItemLocation = "Pasillo 1 / Armario 2 / Estanteria 4 / Posición 3",
-                QuantityAvailable = 10,
-                ItemBarcode = string.Empty
+            return new List<InventoryInformation>
+            { new InventoryInformation()
+                {
+                    ItemName = "Tornillos",
+                    ItemDescription = @"D:\TGW\bin\PDEnvironment\SCOTe.Agent\v2\Projects\BuildSolution.proj(221,5): warning : CompleteTransportRequest.cs(15,18): warning CS1591: Missing XML comment for publicly visible type or member 'CompleteTransportRequest' [D:\_B\6837055\B\8\Products\SharedCode\ManualTransports\ManualTransports.Facade.Messages\ManualTransports.Facade.Messages.csproj] D:\TGW\bin\PDEnvironment\SCOTe.Agent\v2\Projects\BuildSolution.proj(221, 5): warning : CompleteTransportResponse.cs(16, 18): warning CS1591: Missing XML comment for publicly visible type or member 'CompleteTransportResponse'[D:\_B\6837055\B\8\Products\SharedCode\ManualTransports\ManualTransports.Facade.Messages\ManualTransports.Facade.Messages.csproj]",
+                    ItemLocation = "Pasillo 1 / Armario 2 / Estanteria 4 / Posición 3",
+                    QuantityAvailable = 10,
+                    ItemBarcode = id.ToString()
+                }
             };
         }
 

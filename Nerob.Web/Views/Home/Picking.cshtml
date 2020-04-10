@@ -102,7 +102,8 @@
         <div id="itemDescription"></div>
     </div>
     <div id="centerDiv" class="centerColumn">
-        <img id="itemImage" />
+        <h2 id="itemName"></h2>
+        <img id="itemImage"/>
         <div class="contentClass" align="left">BARCODE</div>
         <input type="text" id="scannedBarcode" onkeydown="barcodeEntered(event, this)"/>
         <div class="unsizedWrapper">
@@ -110,7 +111,7 @@
             <h2 id="quantityEntered">0</h2>
             <button class="radiusButton" onclick="increaseQuantity()">+</button>
         </div>
-        <button class="squaredbutton" onclick="reset()">
+        <button class="squaredbutton" onclick="confirm()">
             <div>&#10004;</div>
             <div>Confirm</div>
         </button>
@@ -151,28 +152,25 @@
                         // Add a list item for the product.
                         // prependTo() {beginning of element} is the opposite to appendTo() {end of element}
                         currentItem = item;
-                        itemLocation = item.ItemLocation;
-                        $('<h2>', { text: item.ItemName }).prependTo($('#centerDiv'));
+                        //$('<h2>', { text: item.ItemName }).prependTo($('#centerDiv'));
                     });
 
-                reset(itemLocation);
+                setView("../Images/questionMark.png");
             });
-        //var element = $(document).getElementById("itemName");
+        
         //element.value = "test";
     });
 
-    function reset(location) {
-        var tag = $('#itemLocation');
-        tag.html("RBO");
+    function setView(imagePath) {
 
-        var imagePath = "../Images/questionMark.png";
-        if (location === undefined) {
-            location = imagePath;
-        }
+        document.getElementById("itemName").innerHTML = currentItem.ItemName;
 
+        document.getElementById("itemDescription").innerHTML = currentItem.ItemDescription;
+        
         document.getElementById("itemImage").src = imagePath;
 
-        tag.html(location);
+        var tag = $('#itemLocation');
+        tag.html(currentItem.ItemLocation);
     }
 
     function increaseQuantity() {
@@ -192,12 +190,28 @@
     }
 
     function barcodeEntered(e, obj) {
+        // key "Enter" pressed
         if (e.keyCode === 13) {
-            var quantityScanned = parseInt(document.getElementById("scannedBarcode").value);
-            document.getElementById("quantityEntered").innerHTML = quantityScanned;
+            var barcode = parseInt(document.getElementById("scannedBarcode").value);
+
+            $.getJSON(apiUrl + 'id=' + barcode + '&maxItems=100')
+                .done(function (data) {
+                    // On success, 'data' contains a list of products.
+                    $.each(data, function (key, item) {
+                        // Add a list item for the product.
+                        currentItem = item;
+                    });
+
+                    // once the data is retrieved we update the view
+                    setView("../Images/questionMark.png");
+                });
 
             document.getElementById("scannedBarcode").value = "";
         }
+    }
+
+    function confirm() {
+        setView("../Images/questionMark.png");
     }
 
 </script>
