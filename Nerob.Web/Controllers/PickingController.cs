@@ -34,7 +34,7 @@ namespace Nerob.Web.Controllers
                 ItemName = "Scan Item",
                 ItemDescription = string.Empty,
                 ItemLocation = "Pasillo 1 / Armario 2 / Estanteria 4 / Posición 3",
-                QuantityAvailable = 0,
+                QuantityAvailable = 10,
                 ItemBarcode = string.Empty
             };
         }

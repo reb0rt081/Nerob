@@ -104,13 +104,12 @@
     <div id="centerDiv" class="centerColumn">
         <img id="itemImage" />
         <div class="contentClass" align="left">BARCODE</div>
-        <input type="text" id="scannedBarcode"/>
+        <input type="text" id="scannedBarcode" onkeydown="barcodeEntered(event, this)"/>
         <div class="unsizedWrapper">
-            <button class="radiusButton">‒</button>
+            <button class="radiusButton" onclick="decreaseQuantity()">‒</button>
             <h2 id="quantityEntered">0</h2>
-            <button class="radiusButton">+</button>
+            <button class="radiusButton" onclick="increaseQuantity()">+</button>
         </div>
-
         <button class="squaredbutton" onclick="reset()">
             <div>&#10004;</div>
             <div>Confirm</div>
@@ -134,6 +133,8 @@
     //  Code included inside $(document).ready() will only run once the page Document Object Model(DOM) is ready for JavaScript code to execute.
     //  Remember the DOM is read from top to bottom. ready() will be called once the whole document has been read.
 
+    var currentItem;
+
     var itemLocation;
 
     $(document).ready(function() {
@@ -149,6 +150,7 @@
                     function(key, item) {
                         // Add a list item for the product.
                         // prependTo() {beginning of element} is the opposite to appendTo() {end of element}
+                        currentItem = item;
                         itemLocation = item.ItemLocation;
                         $('<h2>', { text: item.ItemName }).prependTo($('#centerDiv'));
                     });
@@ -171,6 +173,31 @@
         document.getElementById("itemImage").src = imagePath;
 
         tag.html(location);
+    }
+
+    function increaseQuantity() {
+        var quantityScanned = parseInt(document.getElementById("quantityEntered").innerHTML);
+
+        if (quantityScanned < currentItem.QuantityAvailable) {
+            document.getElementById("quantityEntered").innerHTML = ++quantityScanned;
+        }
+    }
+
+    function decreaseQuantity() {
+        var quantityScanned = parseInt(document.getElementById("quantityEntered").innerHTML);
+
+        if (quantityScanned > 0) {
+            document.getElementById("quantityEntered").innerHTML = --quantityScanned;
+        }
+    }
+
+    function barcodeEntered(e, obj) {
+        if (e.keyCode === 13) {
+            var quantityScanned = parseInt(document.getElementById("scannedBarcode").value);
+            document.getElementById("quantityEntered").innerHTML = quantityScanned;
+
+            document.getElementById("scannedBarcode").value = "";
+        }
     }
 
 </script>
