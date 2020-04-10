@@ -18,6 +18,12 @@ namespace Nerob.Web
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "InventoryBarcode",
+                url: "{controller}/{action}/{barcodeId}",
+                defaults: new { controller = "Home", action = "InventoryDetail", barcodeId = UrlParameter.Optional }
+            );
         }
     }
 }
