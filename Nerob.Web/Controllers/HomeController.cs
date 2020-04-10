@@ -51,7 +51,10 @@ namespace Nerob.Web.Controllers
             return View(viewModel);
         }
 
-        // play with HttpGet and HttpPost methods
-        // and view and viewmodel navigation
+        [HttpPost]
+        public ActionResult SubmitInventory(InventoryInformation model)
+        {
+           return RedirectToAction(nameof(Index));
+        }
     }
 }
