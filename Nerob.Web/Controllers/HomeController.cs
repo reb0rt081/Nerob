@@ -53,8 +53,11 @@ namespace Nerob.Web.Controllers
 
         [HttpPost]
         public ActionResult SubmitInventory(InventoryInformation model)
-        {
-           return RedirectToAction(nameof(Index));
+        { 
+            // Do stuff
+
+            // When done please navigate back to this view
+            return RedirectToAction(nameof(Index));
         }
     }
 }
