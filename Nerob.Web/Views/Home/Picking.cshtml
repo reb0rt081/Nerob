@@ -10,22 +10,26 @@
     <head>
         <style type="text/css">
             .contentClass {
-                margin: 20px;
+                margin-left: 20px;
+                margin-right: 20px;
+                margin-top: 10px;
                 font-weight: bold;
                 font-size: 12px;
             }
-            button {
-                display: block;
-                margin: 20px;
-                width: 100%;
-                color: white;
-                height: auto;
-                background: limegreen;
+            input {
                 border: none;
+                width: 100%;
+                margin-left: 20px;
+                margin-right: 20px;
+                margin-bottom: 10px;
+                outline: 0;
+                border-bottom: 2px solid blue;
             }
             img {
                 max-width: 100%;
-                margin: 20px;
+                margin-left: 20px;
+                margin-right: 20px;
+                margin-top: 10px;
             }
             body { font-family: Arial, Helvetica, sans-serif; }
             h1 { font-size: 3.0em;}
@@ -33,10 +37,33 @@
                 max-width: 100%;
                 font-size: 1.5em;
                 text-align: center;
-                margin: 20px;
+                margin-left: 20px;
+                margin-right: 20px;
+                margin-top: 10px;
             }
             em { color: orange; }
             strong { color: red; }
+            .squaredbutton {
+                display: block;
+                margin-left: 20px;
+                margin-right: 20px;
+                margin-top: 10px;
+                width: 100%;
+                color: white;
+                height: auto;
+                background: limegreen;
+                border: none;
+            }
+            .radiusButton {
+                height: 40px;
+                width: 40px;
+                border-radius: 50%;
+                border-color: black;
+                border-width: thin;
+                font-size: 22px;
+                font-weight: bold;
+            }
+
             .leftColumn {
                 width: 33%;
                 padding: 20px;
@@ -53,7 +80,17 @@
                 display: flex;
                 height: 100%;
                 width: 100%;
-                flex-direction: row
+                flex-direction: row;
+            }
+            .unsizedWrapper {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                margin-left: 20px;
+                margin-right: 20px;
+                margin-top: 10px;
+                align-items: center;
+                justify-content: center
             }
         </style>
     </head>
@@ -67,7 +104,14 @@
     <div id="centerDiv" class="centerColumn">
         <img id="itemImage" />
         <div class="contentClass" align="left">BARCODE</div>
-        <button onclick="reset()">
+        <input type="text" id="scannedBarcode"/>
+        <div class="unsizedWrapper">
+            <button class="radiusButton">‒</button>
+            <h2 id="quantityEntered">0</h2>
+            <button class="radiusButton">+</button>
+        </div>
+
+        <button class="squaredbutton" onclick="reset()">
             <div>&#10004;</div>
             <div>Confirm</div>
         </button>
