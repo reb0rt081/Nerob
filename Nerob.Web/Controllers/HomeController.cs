@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Nerob.Shared;
 
 namespace Nerob.Web.Controllers
 {
@@ -30,8 +31,27 @@ namespace Nerob.Web.Controllers
         public ActionResult Picking()
         {
             ViewBag.Message = "Your picking page.";
-
+            
             return View();
         }
+
+        //  With this method we navigate to the view with the information obtained here
+        [HttpGet]
+        public ActionResult Inventory()
+        {
+            var viewModel = new InventoryInformation()
+            {
+                ItemName = "Scan Item",
+                ItemDescription = string.Empty,
+                ItemLocation = "Pasillo 1 / Armario 2 / Estanteria 4 / Posición 3",
+                QuantityAvailable = 0,
+                ItemBarcode = string.Empty
+            };
+
+            return View(viewModel);
+        }
+
+        // play with HttpGet and HttpPost methods
+        // and view and viewmodel navigation
     }
 }
